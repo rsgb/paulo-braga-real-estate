@@ -28,7 +28,7 @@ export default function Footer() {
           gridTemplateRows: "auto auto",
           alignItems: "start",
           gap: 4,
-          mt: 2,
+          transform: { md: "translateY(50px)" },
         }}
       >
         {/* 1st row */}

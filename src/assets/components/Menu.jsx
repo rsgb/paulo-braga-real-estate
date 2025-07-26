@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import KWBlack from "../images/KW Black.png";
+import PBre from "../images/PBre black.png";
 
 const pages = ["Home", "Services", "About", "Contact"];
 const languages = ["PT", "ES", "FR", "EN"];
@@ -52,9 +52,9 @@ export default function ResponsiveAppBar() {
             }}
           >
             <img
-              src={KWBlack}
+              src={PBre}
               alt="Paulo Braga Real Estate Logo"
-              style={{ height: 50, margin: 40 }}
+              style={{ height: 80, margin: 30 }}
             />
           </Box>
           {/* Mobile menu button */}
