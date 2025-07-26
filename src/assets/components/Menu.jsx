@@ -48,7 +48,7 @@ export default function ResponsiveAppBar() {
               display: "flex",
               alignItems: "center",
               gap: 1,
-              pl: { xs: 1, md: 15 },
+              pl: { xs: 1, md: 16 },
             }}
           >
             <img
