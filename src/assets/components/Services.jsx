@@ -37,7 +37,7 @@ function FeatureHighlights() {
     <Box
       sx={{ maxWidth: { xs: "350px", md: "748px", lg: "1146px" } }}
       mx="auto"
-      px={2}
+      px={0}
     >
       <Grid container spacing={6} alignItems="center">
         {/* Left column: heading */}

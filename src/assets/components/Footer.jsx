@@ -3,7 +3,8 @@ import CallIcon from "@mui/icons-material/Call";
 import EmailIcon from "@mui/icons-material/Email";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import logo from "../images/logow.png";
+import logo from "../images/KWsol white.png";
+import secondLogo from "../images/PBre white.png";
 
 export default function Footer() {
   return (
@@ -12,27 +13,26 @@ export default function Footer() {
       sx={{
         width: "100%",
         bgcolor: "#000000",
+        position: "relative",
         color: "#FFFFFF",
-        height: { xs: "400px", md: "500px" }, // fixed larger height
+        minHeight: "500px",
         py: { xs: 2, md: 4 }, // reduce padding since height is fixed
         px: { xs: 2, md: 6 },
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
         fontFamily: "'Montserrat', sans-serif",
       }}
     >
-      <Grid
-        container
-        columnSpacing={{ xs: 4, md: 50, lg: 105 }}
-        rowSpacing={2}
-        alignItems="center"
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
+          gridTemplateRows: "auto auto",
+          alignItems: "start",
+          gap: 4,
+          mt: 2,
+        }}
       >
-        {/* Left column: Logo */}
-        <Grid
-          item
-          xs={12}
-          md={4}
+        {/* 1st row */}
+        <Box
           sx={{
             display: "flex",
             justifyContent: { xs: "center", md: "flex-start" },
@@ -42,21 +42,11 @@ export default function Footer() {
             component="img"
             src={logo}
             alt="Paulo Braga Real Estate Logo"
-            sx={{ height: { xs: 60, md: 100 } }}
+            sx={{ height: { xs: 60, md: 80 } }}
           />
-        </Grid>
-
-        {/* Right column: Icons and Copyright */}
-        <Grid item xs={12} md={8}>
-          {/* Icons row */}
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              gap: 2,
-              flexWrap: "wrap",
-            }}
-          >
+        </Box>
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
             <IconButton
               component={Link}
               href="tel:+351123456789"
@@ -88,17 +78,76 @@ export default function Footer() {
               <LinkedInIcon />
             </IconButton>
           </Box>
-          {/* Copyright row */}
-          <Box sx={{ textAlign: "center", mt: 2 }}>
-            <Typography
-              variant="body2"
-              sx={{ fontFamily: "'Montserrat', sans-serif" }}
-            >
-              © {new Date().getFullYear()} Paulo Braga Real Estate
-            </Typography>
-          </Box>
-        </Grid>
-      </Grid>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: { xs: "center", md: "flex-end" },
+          }}
+        >
+          <Box
+            component="img"
+            src={secondLogo}
+            alt="Second Logo"
+            sx={{ height: { xs: 60, md: 80 } }}
+          />
+        </Box>
+
+        {/* 2nd row */}
+        <Box
+          sx={{
+            px: { xs: 2, md: 0 },
+            textAlign: { xs: "center", md: "left" },
+          }}
+        >
+          <Typography
+            variant="body2"
+            sx={{ fontFamily: "'Montserrat', sans-serif" }}
+          >
+            Talentos de Andrómeda - Mediação Imobiliária, LDA
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{ fontFamily: "'Montserrat', sans-serif" }}
+          >
+            AMI 12223 | ICV registado no Banco de Portugal n° 919
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{ fontFamily: "'Montserrat', sans-serif" }}
+          >
+            NIPC 513689206
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{ fontFamily: "'Montserrat', sans-serif" }}
+          >
+            Rua José Régio 1 B,
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{ fontFamily: "'Montserrat', sans-serif" }}
+          >
+            2780-129 Oeiras - Portugal
+          </Typography>
+        </Box>
+      </Box>
+      {/* Absolute copyright in bottom-right */}
+      <Box
+        sx={{
+          position: "absolute",
+          bottom: { xs: 16, md: 24 },
+          left: { xs: "50%", md: 48 },
+          transform: { xs: "translateX(-50%)", md: "none" },
+        }}
+      >
+        <Typography
+          variant="body2"
+          sx={{ fontFamily: "'Montserrat', sans-serif" }}
+        >
+          © {new Date().getFullYear()} Paulo Braga Real Estate
+        </Typography>
+      </Box>
     </Box>
   );
 }
