@@ -12,7 +12,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import logo from "../images/logopb.png";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
-const pages = ["Home", "About", "Opportunities", "Services", "Contact"];
+const pages = ["Home", "Services", "About", "Contact"];
 const languages = ["PT", "ES", "FR", "EN"];
 
 export default function ResponsiveAppBar() {

@@ -5,10 +5,34 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const contacts = [
-  { icon: <CallIcon sx={{ color: "black" }} />, label: "Phone" },
-  { icon: <EmailIcon sx={{ color: "black" }} />, label: "Email" },
-  { icon: <WhatsAppIcon sx={{ color: "black" }} />, label: "WhatsApp" },
-  { icon: <LinkedInIcon sx={{ color: "black" }} />, label: "LinkedIn" },
+  {
+    icon: <CallIcon sx={{ color: "black" }} />,
+    label: "Phone",
+    action: () => window.open("tel:+1234567890", "_self"), // replace with your phone number
+  },
+  {
+    icon: <EmailIcon sx={{ color: "black" }} />,
+    label: "Email",
+    action: () => window.open("mailto:your@email.com", "_self"), // replace with your email
+  },
+  {
+    icon: <WhatsAppIcon sx={{ color: "black" }} />,
+    label: "WhatsApp",
+    action: () =>
+      window.open(
+        "https://wa.me/1234567890", // replace with your WhatsApp number (no + or spaces)
+        "_blank"
+      ),
+  },
+  {
+    icon: <LinkedInIcon sx={{ color: "black" }} />,
+    label: "LinkedIn",
+    action: () =>
+      window.open(
+        "https://www.linkedin.com/in/yourprofile", // replace with your LinkedIn profile URL
+        "_blank"
+      ),
+  },
 ];
 
 const bgColors = ["#FAF8F4", "#F9E8C5", "#F6F5EF", "#EEEEEE"];
@@ -35,15 +59,15 @@ export default function Contact() {
         sx={{
           display: "grid",
           gridTemplateColumns: {
-            xs: "repeat(2, 1fr)", // 2 per row on small screens
-            md: "repeat(4, 1fr)", // 4 per row on medium and large screens
+            xs: "repeat(2, 1fr)",
+            md: "repeat(4, 1fr)",
           },
           gap: 4,
           mt: { xs: 4, md: 6 },
           mb: 20,
         }}
       >
-        {contacts.map(({ label, icon }, index) => (
+        {contacts.map(({ label, icon, action }, index) => (
           <Paper
             key={index}
             elevation={3}
@@ -53,7 +77,15 @@ export default function Contact() {
               aspectRatio: "1 / 1",
               backgroundColor: bgColors[index],
               transition: "transform 0.3s",
+              cursor: "pointer",
               "&:hover": { transform: "scale(1.05)" },
+            }}
+            onClick={action}
+            tabIndex={0}
+            role="button"
+            aria-label={label}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") action();
             }}
           >
             <Box
@@ -67,18 +99,6 @@ export default function Contact() {
               }}
             >
               {icon}
-              <Typography
-                variant="body1"
-                sx={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontWeight: 400,
-                  fontSize: { xs: "1rem", md: "1rem" },
-                  textAlign: "center",
-                  wordBreak: "break-word",
-                }}
-              >
-                {label}
-              </Typography>
             </Box>
           </Paper>
         ))}

@@ -6,19 +6,21 @@ import GavelIcon from "@mui/icons-material/Gavel";
 
 const features = [
   {
-    icon: <HotelIcon sx={{ color: "black" }} />,
+    icon: <HotelIcon sx={{ color: "black", fontSize: { xs: 32, md: 40 } }} />,
     text: "High expertise in hotel, leisure and senior living investments",
   },
   {
-    icon: <PublicIcon sx={{ color: "black" }} />,
+    icon: <PublicIcon sx={{ color: "black", fontSize: { xs: 32, md: 40 } }} />,
     text: "Wide national and international contact network",
   },
   {
-    icon: <PeopleAltIcon sx={{ color: "black" }} />,
+    icon: (
+      <PeopleAltIcon sx={{ color: "black", fontSize: { xs: 32, md: 40 } }} />
+    ),
     text: "Coordination of multidisciplinary teams",
   },
   {
-    icon: <GavelIcon sx={{ color: "black" }} />,
+    icon: <GavelIcon sx={{ color: "black", fontSize: { xs: 32, md: 40 } }} />,
     text: "Specialized legal advisory",
   },
 ];
@@ -58,11 +60,10 @@ function FeatureHighlights() {
             sx={{
               display: "grid",
               gridTemplateColumns: {
-                xs: "repeat(1, 1fr)", // 1 per row on mobile
-                md: "repeat(2, 1fr)", // 2 per row at the first breakpoint (>=900px)
-                lg: "repeat(4, 1fr)", // 4 per row on large screens (>=1200px)
+                xs: "1fr", // 1 per row on small screens
+                md: "repeat(4, 1fr)", // 4 per row on medium and large screens
               },
-              gap: 4,
+              gap: 3,
               justifyContent: "center",
             }}
           >
@@ -71,38 +72,43 @@ function FeatureHighlights() {
                 key={index}
                 elevation={3}
                 sx={{
-                  p: 3,
+                  p: { xs: 2, md: 2.5 },
                   width: "100%",
-                  aspectRatio: "1 / 1",
+                  aspectRatio: { xs: "auto", md: "1 / 1" },
                   backgroundColor: bgColors[index],
                   transition: "transform 0.3s",
                   "&:hover": { transform: "scale(1.05)" },
+                  minHeight: { xs: 120, md: "unset" },
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
                 }}
               >
                 <Box
                   sx={{
+                    height: { xs: 48, md: 56 },
                     display: "flex",
-                    flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
-                    height: "100%",
-                    gap: 2,
+                    width: "100%",
+                    mb: 1.5,
                   }}
                 >
                   {icon}
-                  <Typography
-                    variant="body1"
-                    sx={{
-                      fontFamily: "'Montserrat', sans-serif",
-                      fontWeight: 400,
-                      fontSize: { xs: "1rem", md: "1rem" },
-                      textAlign: "center",
-                      wordBreak: "break-word",
-                    }}
-                  >
-                    {text}
-                  </Typography>
                 </Box>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontFamily: "'Montserrat', sans-serif",
+                    fontWeight: 400,
+                    fontSize: { xs: "0.95rem", md: "1rem" },
+                    textAlign: "center",
+                    wordBreak: "break-word",
+                    width: "100%",
+                  }}
+                >
+                  {text}
+                </Typography>
               </Paper>
             ))}
           </Box>
