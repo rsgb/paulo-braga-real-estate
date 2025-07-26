@@ -33,18 +33,20 @@ export default function Contact() {
   return (
     <Container maxWidth="sm" disableGutters sx={{ px: 2 }}>
       {/* Row 1: full-width heading */}
-      <Typography
-        variant="h1"
-        sx={{
-          fontFamily: "'Libre Baskerville', serif",
-          fontWeight: 700,
-          fontSize: { xs: "2rem", md: "2.5rem" },
-          mt: { xs: 10, md: 14 },
-          textAlign: "left",
-        }}
-      >
-        Contact
-      </Typography>
+      <Box sx={{ maxWidth: { xs: 318, md: "100%" }, mx: "auto" }}>
+        <Typography
+          variant="h1"
+          sx={{
+            fontFamily: "'Libre Baskerville', serif",
+            fontWeight: 700,
+            fontSize: { xs: "2rem", md: "2.5rem" },
+            mt: { xs: 10, md: 14 },
+            textAlign: "left",
+          }}
+        >
+          Contact
+        </Typography>
+      </Box>
 
       {/* Row 2: icons grid */}
       <Box
