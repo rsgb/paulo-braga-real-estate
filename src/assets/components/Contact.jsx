@@ -31,7 +31,7 @@ const bgColors = ["#FAF8F4", "#F9E8C5", "#F6F5EF", "#EEEEEE"];
 
 export default function Contact() {
   return (
-    <Container maxWidth="sm" sx={{ px: 2 }}>
+    <Container maxWidth="sm" disableGutters sx={{ px: 2 }}>
       {/* Row 1: full-width heading */}
       <Typography
         variant="h1"
