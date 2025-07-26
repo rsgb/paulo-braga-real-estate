@@ -49,7 +49,7 @@ export default function Contact() {
       {/* Row 2: icons grid */}
       <Box
         sx={{
-          maxWidth: { xs: 350, md: "100%" },
+          maxWidth: { xs: 318, md: "100%" },
           mx: "auto",
           display: "grid",
           gridTemplateColumns: {
