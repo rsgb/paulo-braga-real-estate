@@ -139,6 +139,7 @@ export default function Footer() {
           bottom: { xs: 16, md: 24 },
           left: { xs: "50%", md: 48 },
           transform: { xs: "translateX(-50%)", md: "none" },
+          whiteSpace: "nowrap",
         }}
       >
         <Typography
