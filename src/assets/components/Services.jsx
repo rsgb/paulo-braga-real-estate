@@ -7,21 +7,21 @@ import GavelIcon from "@mui/icons-material/Gavel";
 
 const features = [
   {
-    icon: <HotelIcon sx={{ color: "black", fontSize: { xs: 32, md: 40 } }} />,
+    icon: <HotelIcon sx={{ color: "black", fontSize: { xs: 40, md: 46 } }} />,
     text: "",
   },
   {
-    icon: <PublicIcon sx={{ color: "black", fontSize: { xs: 32, md: 40 } }} />,
+    icon: <PublicIcon sx={{ color: "black", fontSize: { xs: 40, md: 46 } }} />,
     text: "",
   },
   {
     icon: (
-      <PeopleAltIcon sx={{ color: "black", fontSize: { xs: 32, md: 40 } }} />
+      <PeopleAltIcon sx={{ color: "black", fontSize: { xs: 40, md: 46 } }} />
     ),
     text: "",
   },
   {
-    icon: <GavelIcon sx={{ color: "black", fontSize: { xs: 32, md: 40 } }} />,
+    icon: <GavelIcon sx={{ color: "black", fontSize: { xs: 40, md: 46 } }} />,
     text: "",
   },
 ];

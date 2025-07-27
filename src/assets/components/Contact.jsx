@@ -8,22 +8,22 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 const contacts = [
   {
     icon: <CallIcon sx={{ color: "black" }} />,
-    label: "Phone",
+    label: "",
     href: "tel:+351915312417",
   },
   {
     icon: <EmailIcon sx={{ color: "black" }} />,
-    label: "Email",
+    label: "",
     href: "mailto:paulo.braga@kwportugal.pt",
   },
   {
     icon: <WhatsAppIcon sx={{ color: "black" }} />,
-    label: "WhatsApp",
+    label: "",
     href: "https://wa.me/351915312417",
   },
   {
     icon: <LinkedInIcon sx={{ color: "black" }} />,
-    label: "LinkedIn",
+    label: "",
     href: "https://www.linkedin.com/in/paulobragarealestateagentkwportugal/",
   },
 ];
@@ -32,6 +32,28 @@ const bgColors = ["#FAF8F4", "#F9E8C5", "#F6F5EF", "#EEEEEE"];
 
 export default function Contact() {
   const { lang, setLang } = useLang();
+
+  if (lang === "EN") {
+    contacts[0].label = "Phone";
+    contacts[1].label = "Email";
+    contacts[2].label = "WhatsApp";
+    contacts[3].label = "LinkedIn";
+  } else if (lang === "ES") {
+    contacts[0].label = "Teléfono";
+    contacts[1].label = "Email";
+    contacts[2].label = "WhatsApp";
+    contacts[3].label = "LinkedIn";
+  } else if (lang === "FR") {
+    contacts[0].label = "Téléphone";
+    contacts[1].label = "E-mail";
+    contacts[2].label = "WhatsApp";
+    contacts[3].label = "LinkedIn";
+  } else if (lang === "PT") {
+    contacts[0].label = "Telefone";
+    contacts[1].label = "Email";
+    contacts[2].label = "WhatsApp";
+    contacts[3].label = "LinkedIn";
+  }
 
   let contact = "";
 
@@ -119,9 +141,13 @@ export default function Contact() {
                 alignItems: "center",
                 justifyContent: "center",
                 gap: 2,
+                "& svg": {
+                  fontSize: "1.5rem",
+                },
               }}
             >
               {icon}
+              {label}
             </Box>
           </Paper>
         ))}

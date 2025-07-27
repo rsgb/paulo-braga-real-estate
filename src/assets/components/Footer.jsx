@@ -52,21 +52,42 @@ export default function Footer() {
             <IconButton
               component={Link}
               href="tel:+351915312417"
-              sx={{ color: "#FFFFFF" }}
+              sx={{
+                color: "#FFFFFF",
+                border: "1px solid transparent",
+                transition: "border 0.2s",
+                "&:hover": {
+                  borderColor: "#FFFFFF",
+                },
+              }}
             >
               <CallIcon />
             </IconButton>
             <IconButton
               component={Link}
               href="mailto:paulo.braga@kwportugal.pt"
-              sx={{ color: "#FFFFFF" }}
+              sx={{
+                color: "#FFFFFF",
+                border: "1px solid transparent",
+                transition: "border 0.2s",
+                "&:hover": {
+                  borderColor: "#FFFFFF",
+                },
+              }}
             >
               <EmailIcon />
             </IconButton>
             <IconButton
               component={Link}
               href="https://wa.me/351915312417"
-              sx={{ color: "#FFFFFF" }}
+              sx={{
+                color: "#FFFFFF",
+                border: "1px solid transparent",
+                transition: "border 0.2s",
+                "&:hover": {
+                  borderColor: "#FFFFFF",
+                },
+              }}
             >
               <WhatsAppIcon />
             </IconButton>
@@ -75,7 +96,14 @@ export default function Footer() {
               href="https://www.linkedin.com/in/paulobragarealestateagentkwportugal/"
               target="_blank"
               rel="noopener"
-              sx={{ color: "#FFFFFF" }}
+              sx={{
+                color: "#FFFFFF",
+                border: "1px solid transparent",
+                transition: "border 0.2s",
+                "&:hover": {
+                  borderColor: "#FFFFFF",
+                },
+              }}
             >
               <LinkedInIcon />
             </IconButton>

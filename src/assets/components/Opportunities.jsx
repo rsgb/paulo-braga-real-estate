@@ -111,7 +111,11 @@ export default function ThreeCards() {
                 "&:hover": { transform: "scale(1.05)" },
               }}
             >
-              <CardActionArea>
+              <CardActionArea
+                disableRipple
+                disableTouchRipple
+                sx={{ cursor: "default", "&:hover": { cursor: "default" } }}
+              >
                 <CardMedia
                   component="img"
                   image={img}

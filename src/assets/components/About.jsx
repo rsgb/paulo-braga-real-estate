@@ -56,10 +56,10 @@ export default function About({ image, alt }) {
               display: "grid",
               gap: 0,
               gridTemplateColumns: {
-                xs: "repeat(1, 1fr)", // 1 column on mobile
-                md: "repeat(2, 1fr)", // 2 columns on md+
-                lg: "repeat(2, 1fr)", // stays 2 columns on lg+
+                xs: "repeat(1, 1fr)",   // 1 column on extra-small
+                md: "repeat(2, 1fr)",   // 2 columns (2 rows for 4+ cards) on medium
               },
+              gridAutoRows: "auto",
               justifyContent: "center",
               alignItems: "end",
             }}
@@ -85,8 +85,7 @@ export default function About({ image, alt }) {
               sx={{
                 width: "100%",
                 minWidth: "350px",
-
-                // backgroundColor: "#212121",
+                alignSelf: "center",
               }}
             >
               <Typography
@@ -99,7 +98,7 @@ export default function About({ image, alt }) {
                   fontSize: { xs: "2rem", md: "2.5rem" },
                   textAlign: "left",
                   mb: 2,
-                  mt: 5,
+                  mt: { xs: 5, md: 2 },
                 }}
               >
                 {about[0]}

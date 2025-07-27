@@ -13,7 +13,14 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import PBre from "../images/PBre black.png";
 
-const languages = ["PT", "ES", "FR", "EN"];
+const languages = ["PT", "EN", "ES", "FR"];
+// Map language codes to flag emojis
+const flagMap = {
+  PT: "🇵🇹",
+  EN: "🇬🇧",
+  ES: "🇪🇸",
+  FR: "🇫🇷",
+};
 
 export default function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -45,65 +52,130 @@ export default function ResponsiveAppBar() {
 
   return (
     <AppBar position="fixed" color="default" elevation={1}>
-      <Container maxWidth="xl">
+      <Container
+        maxWidth={false}
+        disableGutters
+        sx={{
+          maxWidth: { xs: "350px", md: "748px", lg: "1148px" },
+          width: "100%",
+          mx: "auto",
+        }}
+      >
         <Toolbar
           disableGutters
           sx={{
-            position: "relative",
-            width: "100%",
-            gap: 4,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            height: 140,
           }}
         >
           {/* Logo / Title */}
           <Box
             sx={{
               display: "flex",
-              alignItems: "center",
-              gap: 1,
-              pl: { xs: 1, md: 16 },
+              alignContent: "flex-start",
             }}
           >
             <img
               src={PBre}
               alt="Paulo Braga Real Estate Logo"
-              style={{ height: 80, margin: 30 }}
+              style={{ height: 80 }}
             />
           </Box>
-          {/* Mobile menu button */}
-          <Box
-            sx={{
-              position: "absolute",
-              right: 16,
-              display: { xs: "flex", lg: "none" },
-              gap: 1,
-            }}
-          >
-            {/* Nav Hamburger */}
-            <IconButton
-              size="large"
-              aria-label="open navigation menu"
-              onClick={handleOpenNavMenu}
-            >
-              <MenuIcon />
-            </IconButton>
-            {/* Language Dropdown Trigger */}
-            <IconButton
-              size="large"
-              aria-label="open language menu"
-              onClick={handleOpenMobileLangMenu}
-              sx={{ display: "flex", alignItems: "center", gap: 0.5 }}
+          <Box sx={{ display: "flex", alignItems: "center", gap: 4 }}>
+            {/* Mobile menu button */}
+            <Box sx={{ display: { xs: "flex", lg: "none" }, gap: 1 }}>
+              <IconButton
+                size="large"
+                color="inherit"
+                aria-label="open navigation menu"
+                onClick={handleOpenNavMenu}
+              >
+                <MenuIcon />
+              </IconButton>
+              <IconButton
+                size="large"
+                color="inherit"
+                aria-label="open language menu"
+                onClick={handleOpenMobileLangMenu}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 0.5,
+                  transition: "opacity 0.2s, transform 0.2s",
+                  cursor: "pointer",
+                  ...(Boolean(anchorElMobileLang) && {
+                    opacity: 0.9,
+                    transform: "scale(0.95)",
+                  }),
+                }}
+              >
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontFamily: "'Libre Baskerville', serif",
+                    fontSize: "0.875rem",
+                  }}
+                >
+                  {flagMap[lang]}
+                </Typography>
+                <ArrowDropDownIcon />
+              </IconButton>
+            </Box>
+            {/* Desktop links */}
+            <Box sx={{ display: { xs: "none", lg: "flex" }, gap: 4 }}>
+              {pages.map((page) => (
+                <Button
+                  key={page.id}
+                  component="a"
+                  href={`#${page.id}`}
+                  onClick={handleCloseNavMenu}
+                  sx={{ color: "inherit", display: "block" }}
+                >
+                  <Typography
+                    variant="subtitle2"
+                    sx={{
+                      fontFamily: "'Libre Baskerville', serif",
+                      fontSize: "0.875rem",
+                    }}
+                  >
+                    {page.label}
+                  </Typography>
+                </Button>
+              ))}
+            </Box>
+            {/* Desktop language switch */}
+            <Button
+              onClick={handleOpenLangMenu}
+              disableRipple
+              sx={{
+                color: "inherit",
+                display: { xs: "none", lg: "flex" },
+                alignItems: "center",
+                gap: 0.5,
+                cursor: "default",
+                transition: "opacity 0.2s, transform 0.2s",
+                ...(Boolean(anchorElLang) && {
+                  opacity: 0.9,
+                  transform: "scale(0.95)",
+                }),
+                "&:hover": {
+                  // Keep existing hover styles if any (none specified here)
+                },
+              }}
             >
               <Typography
-                variant="body2"
+                variant="subtitle2"
                 sx={{
                   fontFamily: "'Libre Baskerville', serif",
                   fontSize: "0.875rem",
                 }}
               >
-                {lang}
+                {flagMap[lang]}
               </Typography>
               <ArrowDropDownIcon />
-            </IconButton>
+            </Button>
           </Box>
           <Menu
             anchorEl={anchorElNav}
@@ -156,31 +228,27 @@ export default function ResponsiveAppBar() {
                     fontSize: "0.875rem",
                   }}
                 >
-                  {lng}
+                  {flagMap[lng]}
                 </Typography>
               </MenuItem>
             ))}
           </Menu>
 
-          {/* Desktop logo */}
-
-          {/* Desktop menu links */}
-          <Box
-            sx={{
-              position: "absolute",
-              left: "50%",
-              transform: "translateX(-50%)",
-              display: { xs: "none", lg: "flex" },
-              gap: 4,
-            }}
+          <Menu
+            anchorEl={anchorElLang}
+            open={Boolean(anchorElLang)}
+            onClose={handleCloseLangMenu}
+            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+            transformOrigin={{ vertical: "top", horizontal: "right" }}
           >
-            {pages.map((page) => (
-              <Button
-                component="a"
-                href={`#${page.id}`}
-                key={page.id}
-                onClick={handleCloseNavMenu}
-                sx={{ color: "inherit", display: "block" }}
+            {languages.map((lng) => (
+              <MenuItem
+                key={lng}
+                selected={lng === lang}
+                onClick={() => {
+                  setLang(lng);
+                  handleCloseLangMenu();
+                }}
               >
                 <Typography
                   variant="subtitle2"
@@ -189,59 +257,11 @@ export default function ResponsiveAppBar() {
                     fontSize: "0.875rem",
                   }}
                 >
-                  {page.label}
+                  {flagMap[lng]}
                 </Typography>
-              </Button>
+              </MenuItem>
             ))}
-            <Button
-              onClick={handleOpenLangMenu}
-              sx={{
-                color: "inherit",
-                display: "flex",
-                alignItems: "center",
-                gap: 0.5,
-              }}
-            >
-              <Typography
-                variant="subtitle2"
-                sx={{
-                  fontFamily: "'Libre Baskerville', serif",
-                  fontSize: "0.875rem",
-                }}
-              >
-                {lang}
-              </Typography>
-              <ArrowDropDownIcon />
-            </Button>
-            <Menu
-              anchorEl={anchorElLang}
-              open={Boolean(anchorElLang)}
-              onClose={handleCloseLangMenu}
-              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-              transformOrigin={{ vertical: "top", horizontal: "right" }}
-            >
-              {languages.map((lng) => (
-                <MenuItem
-                  key={lng}
-                  selected={lng === lang}
-                  onClick={() => {
-                    setLang(lng);
-                    handleCloseLangMenu();
-                  }}
-                >
-                  <Typography
-                    variant="subtitle2"
-                    sx={{
-                      fontFamily: "'Libre Baskerville', serif",
-                      fontSize: "0.875rem",
-                    }}
-                  >
-                    {lng}
-                  </Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+          </Menu>
         </Toolbar>
       </Container>
     </AppBar>
