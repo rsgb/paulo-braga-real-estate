@@ -1,3 +1,4 @@
+import { useLang } from "./LangContext";
 import { Typography, Box, Paper, Container } from "@mui/material";
 import CallIcon from "@mui/icons-material/Call";
 import EmailIcon from "@mui/icons-material/Email";
@@ -23,13 +24,27 @@ const contacts = [
   {
     icon: <LinkedInIcon sx={{ color: "black" }} />,
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/paulo-ruivo-braga/",
+    href: "https://www.linkedin.com/in/paulobragarealestateagentkwportugal/",
   },
 ];
 
 const bgColors = ["#FAF8F4", "#F9E8C5", "#F6F5EF", "#EEEEEE"];
 
 export default function Contact() {
+  const { lang, setLang } = useLang();
+
+  let contact = "";
+
+  if (lang === "EN") {
+    contact = "Contact";
+  } else if (lang === "PT") {
+    contact = "Contacto";
+  } else if (lang === "ES") {
+    contact = "Contacto";
+  } else if (lang === "FR") {
+    contact = "Contact";
+  }
+
   return (
     <Container maxWidth="sm" disableGutters sx={{ px: 2 }}>
       {/* Row 1: full-width heading */}
@@ -44,7 +59,7 @@ export default function Contact() {
             textAlign: "left",
           }}
         >
-          Contact
+          {contact}
         </Typography>
       </Box>
 

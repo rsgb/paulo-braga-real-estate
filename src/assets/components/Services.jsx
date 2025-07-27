@@ -1,3 +1,4 @@
+import { useLang } from "./LangContext";
 import { Grid, Typography, Box, Paper } from "@mui/material";
 import HotelIcon from "@mui/icons-material/Hotel";
 import PublicIcon from "@mui/icons-material/Public";
@@ -7,21 +8,21 @@ import GavelIcon from "@mui/icons-material/Gavel";
 const features = [
   {
     icon: <HotelIcon sx={{ color: "black", fontSize: { xs: 32, md: 40 } }} />,
-    text: "High expertise in hotel, leisure and senior living investments",
+    text: "",
   },
   {
     icon: <PublicIcon sx={{ color: "black", fontSize: { xs: 32, md: 40 } }} />,
-    text: "Wide national and international contact network",
+    text: "",
   },
   {
     icon: (
       <PeopleAltIcon sx={{ color: "black", fontSize: { xs: 32, md: 40 } }} />
     ),
-    text: "Coordination of multidisciplinary teams",
+    text: "",
   },
   {
     icon: <GavelIcon sx={{ color: "black", fontSize: { xs: 32, md: 40 } }} />,
-    text: "Specialized legal advisory",
+    text: "",
   },
 ];
 
@@ -33,6 +34,40 @@ const bgColors = [
 ];
 
 function FeatureHighlights() {
+  const { lang, setLang } = useLang();
+
+  let services = "";
+
+  if (lang === "EN") {
+    services = "Services";
+    features[0].text =
+      "High expertise in hotel, leisure and senior living investments";
+    features[1].text = "Wide national and international contact network";
+    features[2].text = "Coordination of multidisciplinary teams";
+    features[3].text = "Specialized legal advisory";
+  } else if (lang === "PT") {
+    services = "Serviços";
+    features[0].text =
+      "Especialização em investimento hoteleiro, lazer e residências sénior";
+    features[1].text = "Rede de contactos nacional e internacional";
+    features[2].text = "Capacidade para articular equipas multidisciplinares";
+    features[3].text = "Aconselhamento jurídico especializado";
+  } else if (lang === "ES") {
+    services = "Servicios";
+    features[0].text =
+      "Especialización en inversión hotelera, ocio y residencias senior";
+    features[1].text = "Red de contactos nacional e internacional";
+    features[2].text = "Capacidad para coordinar equipos multidisciplinares";
+    features[3].text = "Asesoramiento jurídico especializado";
+  } else if (lang === "FR") {
+    services = "Services";
+    features[0].text =
+      "Spécialisation en investissement hôtelier, loisirs et résidences seniors";
+    features[1].text = "Réseau de contacts national et international";
+    features[2].text = "Capacité à coordonner des équipes multidisciplinaires";
+    features[3].text = "Conseil juridique spécialisé";
+  }
+
   return (
     <Box
       sx={{ maxWidth: { xs: "350px", md: "748px", lg: "1146px" } }}
@@ -51,7 +86,7 @@ function FeatureHighlights() {
               mt: { xs: 10, md: 14 },
             }}
           >
-            Services
+            {services}
           </Typography>
         </Grid>
         {/* Right column: feature cards */}

@@ -1,16 +1,40 @@
+import { useLang } from "./LangContext";
 import { Box, CardMedia, Typography } from "@mui/material";
 
-/**
- * TwoColumnComponent
- *
- * Props:
- * - image: string (URL/path to the image)
- * - alt: string (alt text for the image)
- * - buttonText: string (text inside the button)
- * - onButtonClick: function (click handler for the button)
- * - children: ReactNode (content for the right column)
- */
-export default function About({ image, alt, children }) {
+export default function About({ image, alt }) {
+  const { lang, setLang } = useLang();
+  let about = [];
+
+  if (lang === "EN") {
+    about = [
+      "About",
+      "I’m Paulo Braga, a real estate consultant focused on the acquisition and sale of strategic assets, with emphasis on the hotel, leisure, and senior residence sectors.",
+      "With over 30 years of experience in management, consulting, project development, team leadership, and distribution networks in the private sector, I bring a broad perspective on negotiation, partnerships, and asset appreciation.",
+      "I work in collaboration with national and international investors and multidisciplinary teams, ensuring discretion, precision, and tailored solutions for each context.",
+    ];
+  } else if (lang === "PT") {
+    about = [
+      "Sobre mim",
+      "Sou Paulo Braga, consultor imobiliário com um percurso consolidado no apoio à compra e venda de ativos estratégicos, com foco nos setores da hotelaria, lazer noturno e residências seniores.",
+      "A minha experiência resulta de mais de 30 anos em cargos de gestão, assessoria, desenvolvimento de projetos, gestão de equipas e de redes de distribuição no setor privado, onde desenvolvi uma visão abrangente sobre negociação, parcerias e valorização de ativos.",
+      "Trabalho em articulação com investidores nacionais e internacionais, e com equipas multidisciplinares, garantindo discrição, rigor e soluções ajustadas a cada contexto.",
+    ];
+  } else if (lang === "ES") {
+    about = [
+      "Sobre mí",
+      "Soy Paulo Braga, consultor inmobiliario con una sólida trayectoria en la compra y venta de activos estratégicos, centrado en los sectores hotelero, ocio nocturno y residencias para mayores.",
+      "Mi experiencia proviene de más de 30 años en cargos directivos, asesoría, desarrollo de proyectos, gestión de equipos y redes comerciales en el sector privado, lo que me ha proporcionado una visión integral sobre negociación, asociaciones y valorización de activos.",
+      "Trabajo con inversores nacionales e internacionales, y con equipos multidisciplinares, garantizando discreción, rigor y soluciones adaptadas a cada contexto.",
+    ];
+  } else if (lang === "FR") {
+    about = [
+      "À propos",
+      "Je suis Paulo Braga, consultant immobilier avec une solide expérience dans l'achat et la vente d'actifs stratégiques, notamment dans les secteurs de l’hôtellerie, des loisirs nocturnes et des résidences seniors.",
+      "Mon parcours inclut plus de 30 ans à des postes de direction, de conseil, de développement de projets, de gestion d’équipes et de réseaux de distribution dans le secteur privé, me conférant une vision globale de la négociation, des partenariats et de la valorisation d’actifs.",
+      "Je travaille en collaboration avec des investisseurs nationaux et internationaux ainsi qu’avec des équipes pluridisciplinaires, garantissant discrétion, rigueur et solutions sur mesure.",
+    ];
+  }
+
   return (
     <>
       <Box className="parallax-background" sx={{ minHeight: "100%" }}>
@@ -78,7 +102,7 @@ export default function About({ image, alt, children }) {
                   mt: 5,
                 }}
               >
-                About
+                {about[0]}
               </Typography>
               <Typography
                 margin="20px"
@@ -94,7 +118,9 @@ export default function About({ image, alt, children }) {
                   fontSize: { xs: "1rem", md: "1rem" },
                 }}
               >
-                {children}
+                <p>{about[1]}</p>
+                <p>{about[2]}</p>
+                <p>{about[3]}</p>
               </Typography>
             </Box>
           </Box>

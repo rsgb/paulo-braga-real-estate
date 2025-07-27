@@ -1,3 +1,4 @@
+import { useLang } from "./LangContext";
 import { Box, Grid, IconButton, Typography, Link } from "@mui/material";
 import CallIcon from "@mui/icons-material/Call";
 import EmailIcon from "@mui/icons-material/Email";
@@ -7,6 +8,7 @@ import logo from "../images/KWsol white.png";
 import secondLogo from "../images/PBre white.png";
 
 export default function Footer() {
+  const { lang, setLang } = useLang();
   return (
     <Box
       component="footer"
@@ -70,7 +72,7 @@ export default function Footer() {
             </IconButton>
             <IconButton
               component={Link}
-              href="https://www.linkedin.com/in/paulo-ruivo-braga/"
+              href="https://www.linkedin.com/in/paulobragarealestateagentkwportugal/"
               target="_blank"
               rel="noopener"
               sx={{ color: "#FFFFFF" }}

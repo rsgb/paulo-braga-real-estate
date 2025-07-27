@@ -18,3 +18,21 @@ body {
   background-size: cover;
   background-position: center;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scroll offset for each section */
+#home {
+  scroll-margin-top: 160px;
+}
+#services {
+  scroll-margin-top: 80px;
+}
+#about {
+  scroll-margin-top: 140px;
+}
+#contact {
+  scroll-margin-top: 160px;
+}

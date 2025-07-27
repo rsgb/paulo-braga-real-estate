@@ -1,7 +1,31 @@
+import { useLang } from "./LangContext";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
 export default function Header() {
+  const { lang, setLang } = useLang();
+
+  let title = "";
+  let subtitle = "";
+
+  if (lang === "EN") {
+    title = "High-Value Real Estate Investments";
+    subtitle =
+      "Explore curated investment opportunities in Portugal’s high-demand sectors, tailored for national and global investors.";
+  } else if (lang === "PT") {
+    title = "Investimentos Imobiliários de Alto Valor";
+    subtitle =
+      "Explore oportunidades de investimento seleccionadas nos sectores de maior procura em Portugal, concebidas para investidores nacionais e internacionais.";
+  } else if (lang === "ES") {
+    title = "Inversiones Inmobiliarias de Alto Valor";
+    subtitle =
+      "Explore oportunidades de inversión seleccionadas en los sectores de mayor demanda en Portugal, diseñadas para inversores nacionales e internacionales.";
+  } else if (lang === "FR") {
+    title = "Investissements Immobiliers de Haute Valeur";
+    subtitle =
+      "Découvrez des opportunités d’investissement sélectionnées dans les secteurs les plus recherchés du Portugal, conçues pour les investisseurs nationaux et internationaux.";
+  }
+
   return (
     <Box
       sx={{
@@ -25,7 +49,7 @@ export default function Header() {
           mb: 2,
         }}
       >
-        High-Value Real Estate Investments
+        {title}
       </Typography>
       <Typography
         variant="h2"
@@ -37,8 +61,7 @@ export default function Header() {
           mb: 2,
         }}
       >
-        Explore curated investment opportunities in Portugal’s high-demand
-        sectors, tailored for national and global investors.
+        {subtitle}
       </Typography>
     </Box>
   );

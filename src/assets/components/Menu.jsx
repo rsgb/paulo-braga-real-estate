@@ -1,3 +1,4 @@
+import { useLang } from "./LangContext";
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -12,14 +13,25 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import PBre from "../images/PBre black.png";
 
-const pages = ["Home", "Services", "About", "Contact"];
 const languages = ["PT", "ES", "FR", "EN"];
 
 export default function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElLang, setAnchorElLang] = React.useState(null);
   const [anchorElMobileLang, setAnchorElMobileLang] = React.useState(null);
-  const [lang, setLang] = React.useState("EN");
+  const { lang, setLang } = useLang();
+
+  const pageKeys = ["home", "services", "about", "contact"];
+  const pageLabels = {
+    EN: ["Home", "Services", "About", "Contact"],
+    PT: ["Início", "Serviços", "Sobre Mim", "Contacto"],
+    ES: ["Inicio", "Servicios", "Sobre Mí", "Contacto"],
+    FR: ["Accueil", "Services", "À Propos", "Contact"],
+  };
+  const pages = pageKeys.map((key, idx) => ({
+    id: key,
+    label: pageLabels[lang][idx] || pageLabels.EN[idx],
+  }));
 
   const handleOpenNavMenu = (e) => setAnchorElNav(e.currentTarget);
   const handleCloseNavMenu = () => setAnchorElNav(null);
@@ -101,7 +113,12 @@ export default function ResponsiveAppBar() {
             transformOrigin={{ vertical: "top", horizontal: "left" }}
           >
             {pages.map((page) => (
-              <MenuItem key={page} onClick={handleCloseNavMenu}>
+              <MenuItem
+                component="a"
+                href={`#${page.id}`}
+                key={page.id}
+                onClick={handleCloseNavMenu}
+              >
                 <Typography
                   variant="subtitle2"
                   sx={{
@@ -109,7 +126,7 @@ export default function ResponsiveAppBar() {
                     fontSize: "0.875rem",
                   }}
                 >
-                  {page}
+                  {page.label}
                 </Typography>
               </MenuItem>
             ))}
@@ -159,7 +176,9 @@ export default function ResponsiveAppBar() {
           >
             {pages.map((page) => (
               <Button
-                key={page}
+                component="a"
+                href={`#${page.id}`}
+                key={page.id}
                 onClick={handleCloseNavMenu}
                 sx={{ color: "inherit", display: "block" }}
               >
@@ -170,7 +189,7 @@ export default function ResponsiveAppBar() {
                     fontSize: "0.875rem",
                   }}
                 >
-                  {page}
+                  {page.label}
                 </Typography>
               </Button>
             ))}

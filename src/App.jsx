@@ -1,3 +1,4 @@
+import { LangProvider, useLang } from "./assets/components/LangContext";
 import ResponsiveAppBar from "./assets/components/Menu";
 import Opportunities from "./assets/components/Opportunities";
 import Header from "./assets/components/Header";
@@ -10,30 +11,25 @@ import Footer from "./assets/components/footer";
 function App() {
   return (
     <>
-      <ResponsiveAppBar />
-      <Header />
-      <Opportunities />
-      <Services />
-      <About image={aboutphoto} buttonText="Contact Me">
-        <p>
-          I’m Paulo Braga, a real estate consultant focused on the acquisition
-          and sale of strategic assets, with emphasis on the hotel, leisure, and
-          senior residence sectors.
-        </p>
-        <p>
-          With over 30 years of experience in management, consulting, project
-          development, team leadership, and distribution networks in the private
-          sector, I bring a broad perspective on negotiation, partnerships, and
-          asset appreciation.
-        </p>
-        <p>
-          I work in collaboration with national and international investors and
-          multidisciplinary teams, ensuring discretion, precision, and tailored
-          solutions for each context.
-        </p>
-      </About>
-      <Contact />
-      <Footer />
+      <LangProvider>
+        <ResponsiveAppBar />
+        <div id="home">
+          <Header />
+        </div>
+        <div>
+          <Opportunities />
+        </div>
+        <div id="services">
+          <Services />
+        </div>
+        <div id="about">
+          <About image={aboutphoto} buttonText="Contact Me" />
+        </div>
+        <div id="contact">
+          <Contact />
+        </div>
+        <Footer />
+      </LangProvider>
     </>
   );
 }
