@@ -4,7 +4,7 @@ import react from "@vitejs/plugin-react";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/paulo-braga-real-estate/", // GitHub repo name
+  base: "/", // GitHub repo name
   server: {
     host: true,
   },
