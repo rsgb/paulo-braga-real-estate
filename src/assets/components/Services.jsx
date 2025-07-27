@@ -113,37 +113,46 @@ function FeatureHighlights() {
                   backgroundColor: bgColors[index],
                   transition: "transform 0.3s",
                   "&:hover": { transform: "scale(1.05)" },
-                  minHeight: { xs: 120, md: "unset" },
                   display: "flex",
                   flexDirection: "column",
-                  alignItems: "center",
                 }}
               >
                 <Box
                   sx={{
-                    height: { xs: 48, md: 56 },
+                    flexGrow: 1,
                     display: "flex",
+                    flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
                     width: "100%",
-                    mb: 1.5,
                   }}
                 >
-                  {icon}
+                  <Box
+                    sx={{
+                      height: { xs: 48, md: 56 },
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "100%",
+                      mb: 1.5,
+                    }}
+                  >
+                    {icon}
+                  </Box>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      fontFamily: "'Montserrat', sans-serif",
+                      fontWeight: 400,
+                      fontSize: { xs: "0.95rem", md: "1rem" },
+                      textAlign: "center",
+                      wordBreak: "break-word",
+                      width: "100%",
+                    }}
+                  >
+                    {text}
+                  </Typography>
                 </Box>
-                <Typography
-                  variant="body2"
-                  sx={{
-                    fontFamily: "'Montserrat', sans-serif",
-                    fontWeight: 400,
-                    fontSize: { xs: "0.95rem", md: "1rem" },
-                    textAlign: "center",
-                    wordBreak: "break-word",
-                    width: "100%",
-                  }}
-                >
-                  {text}
-                </Typography>
               </Paper>
             ))}
           </Box>
