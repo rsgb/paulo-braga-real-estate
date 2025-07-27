@@ -4,7 +4,8 @@ import react from "@vitejs/plugin-react";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/", // GitHub repo name
+  base: "/paulo-braga-real-estate/", // GitHub repo name
+  // base: "/", // Netlify repo name
   server: {
     host: true,
   },
