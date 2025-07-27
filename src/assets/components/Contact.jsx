@@ -80,9 +80,10 @@ export default function Contact() {
                 : undefined
             }
             sx={{
-              p: 3,
+              position: "relative",
               width: "100%",
-              aspectRatio: "1 / 1",
+              pt: "100%", // maintain square aspect ratio
+              overflow: "hidden",
               backgroundColor: bgColors[index],
               transition: "transform 0.3s",
               "&:hover": { transform: "scale(1.05)" },
@@ -92,11 +93,16 @@ export default function Contact() {
           >
             <Box
               sx={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                p: 3,
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                height: "100%",
                 gap: 2,
               }}
             >
