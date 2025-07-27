@@ -1,5 +1,5 @@
 import ResponsiveAppBar from "./assets/components/Menu";
-import ThreeColumnFeatures from "./assets/components/Opportunities";
+import Opportunities from "./assets/components/Opportunities";
 import Header from "./assets/components/Header";
 import About from "./assets/components/About";
 import aboutphoto from "./assets/images/fotonb.png";
@@ -10,9 +10,9 @@ import Footer from "./assets/components/footer";
 function App() {
   return (
     <>
-      <Header />
       <ResponsiveAppBar />
-      <ThreeColumnFeatures />
+      <Header />
+      <Opportunities />
       <Services />
       <About image={aboutphoto} buttonText="Contact Me">
         <p>

@@ -8,22 +8,22 @@ const contacts = [
   {
     icon: <CallIcon sx={{ color: "black" }} />,
     label: "Phone",
-    href: "tel:+1234567890",
+    href: "tel:+351915312417",
   },
   {
     icon: <EmailIcon sx={{ color: "black" }} />,
     label: "Email",
-    href: "mailto:your@email.com",
+    href: "mailto:paulo.braga@kwportugal.pt",
   },
   {
     icon: <WhatsAppIcon sx={{ color: "black" }} />,
     label: "WhatsApp",
-    href: "https://wa.me/1234567890",
+    href: "https://wa.me/351915312417",
   },
   {
     icon: <LinkedInIcon sx={{ color: "black" }} />,
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/yourprofile/",
+    href: "https://www.linkedin.com/in/paulo-ruivo-braga/",
   },
 ];
 

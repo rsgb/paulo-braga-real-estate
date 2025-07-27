@@ -49,28 +49,28 @@ export default function Footer() {
           <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
             <IconButton
               component={Link}
-              href="tel:+351123456789"
+              href="tel:+351915312417"
               sx={{ color: "#FFFFFF" }}
             >
               <CallIcon />
             </IconButton>
             <IconButton
               component={Link}
-              href="mailto:info@paulobraga-realestate.pt"
+              href="mailto:paulo.braga@kwportugal.pt"
               sx={{ color: "#FFFFFF" }}
             >
               <EmailIcon />
             </IconButton>
             <IconButton
               component={Link}
-              href="https://wa.me/351123456789"
+              href="https://wa.me/351915312417"
               sx={{ color: "#FFFFFF" }}
             >
               <WhatsAppIcon />
             </IconButton>
             <IconButton
               component={Link}
-              href="https://www.linkedin.com/in/paulobraga"
+              href="https://www.linkedin.com/in/paulo-ruivo-braga/"
               target="_blank"
               rel="noopener"
               sx={{ color: "#FFFFFF" }}

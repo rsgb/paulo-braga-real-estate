@@ -10,13 +10,7 @@ import { Box, CardMedia, Typography } from "@mui/material";
  * - onButtonClick: function (click handler for the button)
  * - children: ReactNode (content for the right column)
  */
-export default function About({
-  image,
-  alt,
-  buttonText,
-  onButtonClick,
-  children,
-}) {
+export default function About({ image, alt, children }) {
   return (
     <>
       <Box className="parallax-background" sx={{ minHeight: "100%" }}>
