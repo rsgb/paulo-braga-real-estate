@@ -5,8 +5,8 @@ import Header from "./assets/components/Header";
 import About from "./assets/components/About";
 import aboutphoto from "./assets/images/fotonb.png";
 import Services from "./assets/components/Services";
-import Contact from "./assets/components/contact";
-import Footer from "./assets/components/footer";
+import Contact from "./assets/components/Contact";
+import Footer from "./assets/components/Footer";
 
 function App() {
   return (
