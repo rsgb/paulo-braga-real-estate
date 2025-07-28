@@ -183,7 +183,7 @@ export default function Footer() {
             variant="body2"
             sx={{
               fontFamily: "'Montserrat', sans-serif",
-              lineHeight: 1.2,
+              lineHeight: 1,
               textAlign: { xs: "center", md: "left" },
             }}
           >
@@ -193,7 +193,7 @@ export default function Footer() {
             variant="body2"
             sx={{
               fontFamily: "'Montserrat', sans-serif",
-              lineHeight: 1.2,
+              lineHeight: 1,
               textAlign: { xs: "center", md: "left" },
             }}
           >
@@ -203,7 +203,7 @@ export default function Footer() {
             variant="body2"
             sx={{
               fontFamily: "'Montserrat', sans-serif",
-              lineHeight: 1.2,
+              lineHeight: 1,
               textAlign: { xs: "center", md: "left" },
             }}
           >
@@ -213,7 +213,7 @@ export default function Footer() {
             variant="body2"
             sx={{
               fontFamily: "'Montserrat', sans-serif",
-              lineHeight: 1.2,
+              lineHeight: 1,
               textAlign: { xs: "center", md: "left" },
             }}
           >
@@ -223,7 +223,7 @@ export default function Footer() {
             variant="body2"
             sx={{
               fontFamily: "'Montserrat', sans-serif",
-              lineHeight: 1.2,
+              lineHeight: 1,
               textAlign: { xs: "center", md: "left" },
             }}
           >
