@@ -6,9 +6,22 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import logo from "../images/KWsol white.png";
 import secondLogo from "../images/PBre white.png";
+import chamber from "../images/chambers white.png";
 
 export default function Footer() {
   const { lang, setLang } = useLang();
+
+  let footer = [];
+  if (lang === "PT") {
+    footer = ["Parcerias", "Sociedade de Advogados"];
+  } else if (lang === "EN") {
+    footer = ["Partnerships", "Law Firm"];
+  } else if (lang === "ES") {
+    footer = ["Colaboraciones", "Despacho de Abogados"];
+  } else if (lang === "FR") {
+    footer = ["Partenariats", "Cabinet d'avocats"];
+  }
+
   return (
     <Box
       component="footer"
@@ -21,43 +34,57 @@ export default function Footer() {
         py: { xs: 2, md: 4 }, // reduce padding since height is fixed
         px: { xs: 2, md: 6 },
         fontFamily: "'Montserrat', sans-serif",
+        mt: 15,
       }}
     >
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
+          gridTemplateColumns: { xs: "1fr", md: "repeat(4, 1fr)" },
           gridTemplateRows: "auto auto",
           alignItems: "start",
           gap: 4,
           transform: { md: "translateY(50px)" },
+          paddingBottom: "30px",
         }}
       >
-        {/* 1st row */}
-        <Box
+        {/* Row 1, Col 1: Partnerships Title */}
+        <Typography
+          variant="h1"
           sx={{
-            display: "flex",
-            justifyContent: { xs: "center", md: "flex-start" },
+            gridColumn: 1,
+            gridRow: 1,
+            fontFamily: "'Libre Baskerville', serif",
+            fontWeight: 700,
+            fontSize: { xs: "1.5rem", md: "2rem" },
+            textAlign: { xs: "center", md: "left" },
+            opacity: 0.8,
           }}
         >
-          <Box
-            component="img"
-            src={logo}
-            alt="Paulo Braga Real Estate Logo"
-            sx={{ height: { xs: 60, md: 80 } }}
-          />
-        </Box>
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          {footer[0]}
+        </Typography>
+
+        {/* Row 2, Col 4: Contact Icons */}
+        <Box
+          sx={{
+            gridColumn: { xs: 1, md: 4 },
+            gridRow: { xs: 4, md: 2 },
+            alignSelf: "start",
+            display: "flex",
+            justifyContent: { xs: "center", md: "flex-end" },
+          }}
+        >
           <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
             <IconButton
               component={Link}
               href="tel:+351915312417"
               sx={{
                 color: "#FFFFFF",
-                border: "1px solid transparent",
-                transition: "border 0.2s",
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+                opacity: 0.8,
                 "&:hover": {
-                  borderColor: "#FFFFFF",
+                  transform: "scale(1.05)",
+                  opacity: 1,
                 },
               }}
             >
@@ -68,10 +95,11 @@ export default function Footer() {
               href="mailto:paulo.braga@kwportugal.pt"
               sx={{
                 color: "#FFFFFF",
-                border: "1px solid transparent",
-                transition: "border 0.2s",
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+                opacity: 0.8,
                 "&:hover": {
-                  borderColor: "#FFFFFF",
+                  transform: "scale(1.05)",
+                  opacity: 1,
                 },
               }}
             >
@@ -82,10 +110,11 @@ export default function Footer() {
               href="https://wa.me/351915312417"
               sx={{
                 color: "#FFFFFF",
-                border: "1px solid transparent",
-                transition: "border 0.2s",
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+                opacity: 0.8,
                 "&:hover": {
-                  borderColor: "#FFFFFF",
+                  transform: "scale(1.05)",
+                  opacity: 1,
                 },
               }}
             >
@@ -98,10 +127,11 @@ export default function Footer() {
               rel="noopener"
               sx={{
                 color: "#FFFFFF",
-                border: "1px solid transparent",
-                transition: "border 0.2s",
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+                opacity: 0.8,
                 "&:hover": {
-                  borderColor: "#FFFFFF",
+                  transform: "scale(1.05)",
+                  opacity: 1,
                 },
               }}
             >
@@ -109,27 +139,46 @@ export default function Footer() {
             </IconButton>
           </Box>
         </Box>
+
+        {/* Row 2, Col 1: KW Section */}
         <Box
           sx={{
+            gridColumn: 1,
+            gridRow: 2,
+            alignSelf: "start",
             display: "flex",
-            justifyContent: { xs: "center", md: "flex-end" },
+            flexDirection: "column",
+            alignItems: { xs: "center", md: "flex-start" },
+            gap: 1,
           }}
         >
           <Box
-            component="img"
-            src={secondLogo}
-            alt="Second Logo"
-            sx={{ height: { xs: 60, md: 80 } }}
-          />
-        </Box>
-
-        {/* 2nd row */}
-        <Box
-          sx={{
-            px: { xs: 2, md: 0 },
-            textAlign: { xs: "center", md: "left" },
-          }}
-        >
+            component={Link}
+            href="https://www.kwportugal.pt/pt/agencia/KW-Sol-Oeiras/8336"
+            target="_blank"
+            rel="noopener"
+            sx={{
+              display: "inline-block",
+              borderRadius: "4px",
+              p: 0.5,
+              width: "fit-content",
+            }}
+          >
+            <Box
+              component="img"
+              src={logo}
+              alt="KW Sol Oeiras Logo"
+              sx={{
+                height: { xs: 36, md: 48 },
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+                opacity: 0.8,
+                "&:hover": {
+                  transform: "scale(1.05)",
+                  opacity: 1,
+                },
+              }}
+            />
+          </Box>
           <Typography
             variant="body2"
             sx={{ fontFamily: "'Montserrat', sans-serif" }}
@@ -161,14 +210,69 @@ export default function Footer() {
             2780-129 Oeiras - Portugal
           </Typography>
         </Box>
+
+        {/* Row 2, Col 2: Chambers Section */}
+        <Box
+          sx={{
+            gridColumn: "1 / -1",
+            gridRow: { xs: 3, md: 2 },
+            alignSelf: "start",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 1,
+            textAlign: "center",
+          }}
+        >
+          <Box
+            component={Link}
+            href="https://www.raposobernardo.com/"
+            target="_blank"
+            rel="noopener"
+            sx={{
+              display: "inline-block",
+              borderRadius: "4px",
+              p: 0.5,
+              width: "fit-content",
+            }}
+          >
+            <Box
+              component="img"
+              src={chamber}
+              alt="Paulo Braga Real Estate Logo"
+              sx={{
+                height: { xs: 60, md: 120 },
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+                opacity: 0.8,
+                "&:hover": {
+                  transform: "scale(1.05)",
+                  opacity: 1,
+                },
+              }}
+            />
+          </Box>
+          <Typography
+            variant="body2"
+            sx={{
+              fontFamily: "'Montserrat', sans-serif",
+              mt: 1,
+            }}
+          >
+            {footer[1]}
+          </Typography>
+        </Box>
       </Box>
       {/* Absolute copyright in bottom-right */}
       <Box
         sx={{
           position: "absolute",
-          bottom: { xs: 16, md: 24 },
-          left: { xs: "50%", md: 48 },
-          transform: { xs: "translateX(-50%)", md: "none" },
+          bottom: { xs: 16, md: 45 },
+          right: 0,
+          width: "100%",
+          display: "flex",
+          justifyContent: "flex-end",
+          pr: { xs: 2, md: 6 },
           whiteSpace: "nowrap",
         }}
       >

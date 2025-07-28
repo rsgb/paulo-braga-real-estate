@@ -70,7 +70,10 @@ function FeatureHighlights() {
 
   return (
     <Box
-      sx={{ maxWidth: { xs: "350px", md: "748px", lg: "1146px" } }}
+      sx={{
+        maxWidth: { xs: "350px", md: "748px", lg: "1146px" },
+        mt: { xs: 12, md: 15 },
+      }}
       mx="auto"
       px={0}
     >
@@ -83,7 +86,6 @@ function FeatureHighlights() {
               fontFamily: "'Libre Baskerville', serif",
               fontWeight: 700,
               fontSize: { xs: "2rem", md: "2.5rem" },
-              mt: { xs: 10, md: 14 },
             }}
           >
             {services}

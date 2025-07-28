@@ -77,7 +77,7 @@ export default function Contact() {
             fontFamily: "'Libre Baskerville', serif",
             fontWeight: 700,
             fontSize: { xs: "2rem", md: "2.5rem" },
-            mt: { xs: 10, md: 14 },
+            mt: { xs: 10, md: 15 },
             textAlign: "left",
           }}
         >
@@ -97,7 +97,6 @@ export default function Contact() {
           },
           gap: 4,
           mt: { xs: 4, md: 6 },
-          mb: 20,
         }}
       >
         {contacts.map(({ label, icon, href }, index) => (
