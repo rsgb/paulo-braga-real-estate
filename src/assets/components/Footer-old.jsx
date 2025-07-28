@@ -213,13 +213,15 @@ export default function Footer() {
         {/* Row 2, Col 2: Chambers Section */}
         <Box
           sx={{
-            gridColumn: 2,
+            gridColumn: "1 / -1",
             gridRow: 2,
             alignSelf: "start",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            justifyContent: "center",
             gap: 1,
+            textAlign: "center",
           }}
         >
           <Box
@@ -253,7 +255,6 @@ export default function Footer() {
             variant="body2"
             sx={{
               fontFamily: "'Montserrat', sans-serif",
-              textAlign: { xs: "center", md: "left" },
               mt: 1,
             }}
           >
