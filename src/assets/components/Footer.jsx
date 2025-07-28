@@ -6,9 +6,22 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import logo from "../images/KWsol white.png";
 import secondLogo from "../images/PBre white.png";
+import chamber from "../images/chambers white.png";
 
 export default function Footer() {
   const { lang, setLang } = useLang();
+
+  let footer = [];
+  if (lang === "PT") {
+    footer = ["Parcerias", "Sociedade de Advogados"];
+  } else if (lang === "EN") {
+    footer = ["Partnerships", "Law Firm"];
+  } else if (lang === "ES") {
+    footer = ["Colaboraciones", "Despacho de Abogados"];
+  } else if (lang === "FR") {
+    footer = ["Partenariats", "Cabinet d'avocats"];
+  }
+
   return (
     <Box
       component="footer"
@@ -21,6 +34,7 @@ export default function Footer() {
         py: { xs: 2, md: 4 }, // reduce padding since height is fixed
         px: { xs: 2, md: 6 },
         fontFamily: "'Montserrat', sans-serif",
+        mt: 15,
       }}
     >
       <Box
@@ -31,21 +45,138 @@ export default function Footer() {
           alignItems: "start",
           gap: 4,
           transform: { md: "translateY(50px)" },
+          paddingBottom: "30px",
         }}
       >
         {/* 1st row */}
         <Box
           sx={{
             display: "flex",
-            justifyContent: { xs: "center", md: "flex-start" },
+            flexDirection: "column",
+            alignItems: { xs: "center", md: "flex-start" },
+            gap: 4,
           }}
         >
+          {/* First row: Title */}
+          <Typography
+            variant="h1"
+            sx={{
+              fontFamily: "'Libre Baskerville', serif",
+              fontWeight: 700,
+              fontSize: { xs: "2rem", md: "2.5rem" },
+              textAlign: { xs: "center", md: "left" },
+            }}
+          >
+            {footer[0]}
+          </Typography>
+
+          {/* Second row: KW Sol logo + subtitles */}
+          <Box>
+            <Box
+              component={Link}
+              href="https://www.kwportugal.pt/pt/agencia/KW-Sol-Oeiras/8336"
+              target="_blank"
+              rel="noopener"
+              sx={{
+                display: "inline-block",
+                borderRadius: "4px",
+                p: 0.5,
+                width: "fit-content",
+              }}
+            >
+              <Box
+                component="img"
+                src={logo}
+                alt="KW Sol Oeiras Logo"
+                sx={{
+                  height: { xs: 36, md: 48 },
+                  transition: "transform 0.3s ease, opacity 0.3s ease",
+                  opacity: 0.8,
+                  "&:hover": {
+                    transform: "scale(1.05)",
+                    opacity: 1,
+                  },
+                }}
+              />
+            </Box>
+            <Typography
+              variant="body2"
+              sx={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              Talentos de Andrómeda - Mediação Imobiliária, LDA
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              AMI 12223 | ICV registado no Banco de Portugal n° 919
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              NIPC 513689206
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              Rua José Régio 1 B,
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              2780-129 Oeiras - Portugal
+            </Typography>
+          </Box>
+
+          {/* Third row: Chambers logo + subtitle */}
           <Box
-            component="img"
-            src={logo}
-            alt="Paulo Braga Real Estate Logo"
-            sx={{ height: { xs: 60, md: 80 } }}
-          />
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Box
+              component={Link}
+              href="https://www.raposobernardo.com/"
+              target="_blank"
+              rel="noopener"
+              sx={{
+                display: "inline-block",
+                borderRadius: "4px",
+                p: 0.5,
+                width: "fit-content",
+              }}
+            >
+              <Box
+                component="img"
+                src={chamber}
+                alt="Paulo Braga Real Estate Logo"
+                sx={{
+                  height: { xs: 60, md: 120 },
+                  transition: "transform 0.3s ease, opacity 0.3s ease",
+                  opacity: 0.8,
+                  "&:hover": {
+                    transform: "scale(1.05)",
+                    opacity: 1,
+                  },
+                }}
+              />
+            </Box>
+            <Typography
+              variant="body2"
+              sx={{
+                fontFamily: "'Montserrat', sans-serif",
+                textAlign: { xs: "center", md: "left" },
+                mt: 1,
+              }}
+            >
+              {footer[1]}
+            </Typography>
+          </Box>
         </Box>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
@@ -54,10 +185,11 @@ export default function Footer() {
               href="tel:+351915312417"
               sx={{
                 color: "#FFFFFF",
-                border: "1px solid transparent",
-                transition: "border 0.2s",
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+                opacity: 0.8,
                 "&:hover": {
-                  borderColor: "#FFFFFF",
+                  transform: "scale(1.05)",
+                  opacity: 1,
                 },
               }}
             >
@@ -68,10 +200,11 @@ export default function Footer() {
               href="mailto:paulo.braga@kwportugal.pt"
               sx={{
                 color: "#FFFFFF",
-                border: "1px solid transparent",
-                transition: "border 0.2s",
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+                opacity: 0.8,
                 "&:hover": {
-                  borderColor: "#FFFFFF",
+                  transform: "scale(1.05)",
+                  opacity: 1,
                 },
               }}
             >
@@ -82,10 +215,11 @@ export default function Footer() {
               href="https://wa.me/351915312417"
               sx={{
                 color: "#FFFFFF",
-                border: "1px solid transparent",
-                transition: "border 0.2s",
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+                opacity: 0.8,
                 "&:hover": {
-                  borderColor: "#FFFFFF",
+                  transform: "scale(1.05)",
+                  opacity: 1,
                 },
               }}
             >
@@ -98,10 +232,11 @@ export default function Footer() {
               rel="noopener"
               sx={{
                 color: "#FFFFFF",
-                border: "1px solid transparent",
-                transition: "border 0.2s",
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+                opacity: 0.8,
                 "&:hover": {
-                  borderColor: "#FFFFFF",
+                  transform: "scale(1.05)",
+                  opacity: 1,
                 },
               }}
             >
@@ -115,60 +250,36 @@ export default function Footer() {
             justifyContent: { xs: "center", md: "flex-end" },
           }}
         >
-          <Box
-            component="img"
-            src={secondLogo}
-            alt="Second Logo"
-            sx={{ height: { xs: 60, md: 80 } }}
-          />
+          <Link href="/#home" underline="none">
+            <Box
+              component="img"
+              src={secondLogo}
+              alt="Second Logo"
+              sx={{
+                height: { xs: 60, md: 80 },
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+                opacity: 0.8,
+                "&:hover": {
+                  transform: "scale(1.05)",
+                  opacity: 1,
+                },
+              }}
+            />
+          </Link>
         </Box>
 
         {/* 2nd row */}
-        <Box
-          sx={{
-            px: { xs: 2, md: 0 },
-            textAlign: { xs: "center", md: "left" },
-          }}
-        >
-          <Typography
-            variant="body2"
-            sx={{ fontFamily: "'Montserrat', sans-serif" }}
-          >
-            Talentos de Andrómeda - Mediação Imobiliária, LDA
-          </Typography>
-          <Typography
-            variant="body2"
-            sx={{ fontFamily: "'Montserrat', sans-serif" }}
-          >
-            AMI 12223 | ICV registado no Banco de Portugal n° 919
-          </Typography>
-          <Typography
-            variant="body2"
-            sx={{ fontFamily: "'Montserrat', sans-serif" }}
-          >
-            NIPC 513689206
-          </Typography>
-          <Typography
-            variant="body2"
-            sx={{ fontFamily: "'Montserrat', sans-serif" }}
-          >
-            Rua José Régio 1 B,
-          </Typography>
-          <Typography
-            variant="body2"
-            sx={{ fontFamily: "'Montserrat', sans-serif" }}
-          >
-            2780-129 Oeiras - Portugal
-          </Typography>
-        </Box>
       </Box>
       {/* Absolute copyright in bottom-right */}
       <Box
         sx={{
           position: "absolute",
-          bottom: { xs: 16, md: 24 },
-          left: { xs: "50%", md: 48 },
-          transform: { xs: "translateX(-50%)", md: "none" },
+          bottom: { xs: 16, md: 45 },
+          right: 0,
+          width: "100%",
+          display: "flex",
+          justifyContent: "flex-end",
+          pr: { xs: 2, md: 6 },
           whiteSpace: "nowrap",
         }}
       >

@@ -48,7 +48,7 @@ export default function About({ image, alt }) {
             alignItems: "center",
             textAlign: "center",
             mb: { xs: 4, md: 10 },
-            mt: { xs: 12, md: 20 },
+            mt: { xs: 12, md: 15 },
           }}
         >
           <Box
@@ -56,8 +56,8 @@ export default function About({ image, alt }) {
               display: "grid",
               gap: 0,
               gridTemplateColumns: {
-                xs: "repeat(1, 1fr)",   // 1 column on extra-small
-                md: "repeat(2, 1fr)",   // 2 columns (2 rows for 4+ cards) on medium
+                xs: "repeat(1, 1fr)", // 1 column on extra-small
+                md: "repeat(2, 1fr)", // 2 columns (2 rows for 4+ cards) on medium
               },
               gridAutoRows: "auto",
               justifyContent: "center",

@@ -86,6 +86,7 @@ export default function ThreeCards() {
           justifyContent: "center",
           alignItems: "flex-start",
           px: "10px",
+          mb: { xs: 4, md: 10 },
         }}
       >
         <Box
