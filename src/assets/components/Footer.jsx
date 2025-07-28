@@ -181,31 +181,51 @@ export default function Footer() {
           </Box>
           <Typography
             variant="body2"
-            sx={{ fontFamily: "'Montserrat', sans-serif" }}
+            sx={{
+              fontFamily: "'Montserrat', sans-serif",
+              lineHeight: 1.2,
+              textAlign: { xs: "center", md: "left" },
+            }}
           >
             Talentos de Andrómeda - Mediação Imobiliária, LDA
           </Typography>
           <Typography
             variant="body2"
-            sx={{ fontFamily: "'Montserrat', sans-serif" }}
+            sx={{
+              fontFamily: "'Montserrat', sans-serif",
+              lineHeight: 1.2,
+              textAlign: { xs: "center", md: "left" },
+            }}
           >
             AMI 12223 | ICV registado no Banco de Portugal n° 919
           </Typography>
           <Typography
             variant="body2"
-            sx={{ fontFamily: "'Montserrat', sans-serif" }}
+            sx={{
+              fontFamily: "'Montserrat', sans-serif",
+              lineHeight: 1.2,
+              textAlign: { xs: "center", md: "left" },
+            }}
           >
             NIPC 513689206
           </Typography>
           <Typography
             variant="body2"
-            sx={{ fontFamily: "'Montserrat', sans-serif" }}
+            sx={{
+              fontFamily: "'Montserrat', sans-serif",
+              lineHeight: 1.2,
+              textAlign: { xs: "center", md: "left" },
+            }}
           >
             Rua José Régio 1 B,
           </Typography>
           <Typography
             variant="body2"
-            sx={{ fontFamily: "'Montserrat', sans-serif" }}
+            sx={{
+              fontFamily: "'Montserrat', sans-serif",
+              lineHeight: 1.2,
+              textAlign: { xs: "center", md: "left" },
+            }}
           >
             2780-129 Oeiras - Portugal
           </Typography>
@@ -268,12 +288,11 @@ export default function Footer() {
         sx={{
           position: "absolute",
           bottom: { xs: 16, md: 45 },
-          right: 0,
+          left: 0,
           width: "100%",
           display: "flex",
-          justifyContent: "flex-end",
-          pr: { xs: 2, md: 6 },
-          whiteSpace: "nowrap",
+          justifyContent: { xs: "center", md: "flex-end" },
+          px: { xs: 0, md: 6 },
         }}
       >
         <Typography
