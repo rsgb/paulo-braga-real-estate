@@ -278,7 +278,7 @@ export default function Footer() {
       >
         <Typography
           variant="body2"
-          sx={{ fontFamily: "'Montserrat', sans-serif" }}
+          sx={{ fontFamily: "'Montserrat', sans-serif", opacity: 0.8 }}
         >
           © {new Date().getFullYear()} Paulo Braga Real Estate
         </Typography>
