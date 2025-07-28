@@ -40,139 +40,38 @@ export default function Footer() {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
+          gridTemplateColumns: { xs: "1fr", md: "repeat(4, 1fr)" },
+          gridTemplateRows: "auto auto",
           alignItems: "start",
           gap: 4,
           transform: { md: "translateY(50px)" },
           paddingBottom: "30px",
         }}
       >
-        {/* Col 1: KW Section */}
-        <Box
+        {/* Row 1, Col 1: Partnerships Title */}
+        <Typography
+          variant="h1"
           sx={{
             gridColumn: 1,
             gridRow: 1,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: { xs: "center", md: "flex-start" },
-            gap: 1,
+            fontFamily: "'Libre Baskerville', serif",
+            fontWeight: 700,
+            fontSize: { xs: "1.5rem", md: "2rem" },
+            textAlign: { xs: "center", md: "left" },
+            opacity: 0.8,
           }}
         >
-          <Box
-            component={Link}
-            href="https://www.kwportugal.pt/pt/agencia/KW-Sol-Oeiras/8336"
-            target="_blank"
-            rel="noopener"
-            sx={{
-              display: "inline-block",
-              borderRadius: "4px",
-              p: 0.5,
-              width: "fit-content",
-            }}
-          >
-            <Box
-              component="img"
-              src={logo}
-              alt="KW Sol Oeiras Logo"
-              sx={{
-                height: { xs: 36, md: 48 },
-                transition: "transform 0.3s ease, opacity 0.3s ease",
-                opacity: 0.8,
-                "&:hover": {
-                  transform: "scale(1.05)",
-                  opacity: 1,
-                },
-              }}
-            />
-          </Box>
-          <Typography
-            variant="body2"
-            sx={{ fontFamily: "'Montserrat', sans-serif" }}
-          >
-            Talentos de Andrómeda - Mediação Imobiliária, LDA
-          </Typography>
-          <Typography
-            variant="body2"
-            sx={{ fontFamily: "'Montserrat', sans-serif" }}
-          >
-            AMI 12223 | ICV registado no Banco de Portugal n° 919
-          </Typography>
-          <Typography
-            variant="body2"
-            sx={{ fontFamily: "'Montserrat', sans-serif" }}
-          >
-            NIPC 513689206
-          </Typography>
-          <Typography
-            variant="body2"
-            sx={{ fontFamily: "'Montserrat', sans-serif" }}
-          >
-            Rua José Régio 1 B,
-          </Typography>
-          <Typography
-            variant="body2"
-            sx={{ fontFamily: "'Montserrat', sans-serif" }}
-          >
-            2780-129 Oeiras - Portugal
-          </Typography>
-        </Box>
+          {footer[0]}
+        </Typography>
 
-        {/* Col 2: Chambers Section */}
+        {/* Row 2, Col 4: Contact Icons */}
         <Box
           sx={{
-            gridColumn: 2,
-            gridRow: 1,
+            gridColumn: { xs: 1, md: 4 },
+            gridRow: { xs: 4, md: 2 },
+            alignSelf: "start",
             display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 1, // Ensure gap: 1 for uniform vertical spacing
-          }}
-        >
-          <Box
-            component={Link}
-            href="https://www.raposobernardo.com/"
-            target="_blank"
-            rel="noopener"
-            sx={{
-              display: "inline-block",
-              borderRadius: "4px",
-              p: 0.5,
-              width: "fit-content",
-            }}
-          >
-            <Box
-              component="img"
-              src={chamber}
-              alt="Paulo Braga Real Estate Logo"
-              sx={{
-                height: { xs: 60, md: 120 },
-                transition: "transform 0.3s ease, opacity 0.3s ease",
-                opacity: 0.8,
-                "&:hover": {
-                  transform: "scale(1.05)",
-                  opacity: 1,
-                },
-              }}
-            />
-          </Box>
-          <Typography
-            variant="body2"
-            sx={{
-              fontFamily: "'Montserrat', sans-serif",
-              textAlign: { xs: "center", md: "left" },
-            }}
-          >
-            {footer[1]}
-          </Typography>
-        </Box>
-
-        {/* Col 3: Contact Icons */}
-        <Box
-          sx={{
-            gridColumn: 3,
-            gridRow: 1,
-            display: "flex",
-            justifyContent: "flex-end",
+            justifyContent: { xs: "center", md: "flex-end" },
           }}
         >
           <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
@@ -239,6 +138,129 @@ export default function Footer() {
               <LinkedInIcon />
             </IconButton>
           </Box>
+        </Box>
+
+        {/* Row 2, Col 1: KW Section */}
+        <Box
+          sx={{
+            gridColumn: 1,
+            gridRow: 2,
+            alignSelf: "start",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: { xs: "center", md: "flex-start" },
+            gap: 1,
+          }}
+        >
+          <Box
+            component={Link}
+            href="https://www.kwportugal.pt/pt/agencia/KW-Sol-Oeiras/8336"
+            target="_blank"
+            rel="noopener"
+            sx={{
+              display: "inline-block",
+              borderRadius: "4px",
+              p: 0.5,
+              width: "fit-content",
+            }}
+          >
+            <Box
+              component="img"
+              src={logo}
+              alt="KW Sol Oeiras Logo"
+              sx={{
+                height: { xs: 36, md: 48 },
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+                opacity: 0.8,
+                "&:hover": {
+                  transform: "scale(1.05)",
+                  opacity: 1,
+                },
+              }}
+            />
+          </Box>
+          <Typography
+            variant="body2"
+            sx={{ fontFamily: "'Montserrat', sans-serif" }}
+          >
+            Talentos de Andrómeda - Mediação Imobiliária, LDA
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{ fontFamily: "'Montserrat', sans-serif" }}
+          >
+            AMI 12223 | ICV registado no Banco de Portugal n° 919
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{ fontFamily: "'Montserrat', sans-serif" }}
+          >
+            NIPC 513689206
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{ fontFamily: "'Montserrat', sans-serif" }}
+          >
+            Rua José Régio 1 B,
+          </Typography>
+          <Typography
+            variant="body2"
+            sx={{ fontFamily: "'Montserrat', sans-serif" }}
+          >
+            2780-129 Oeiras - Portugal
+          </Typography>
+        </Box>
+
+        {/* Row 2, Col 2: Chambers Section */}
+        <Box
+          sx={{
+            gridColumn: "1 / -1",
+            gridRow: { xs: 3, md: 2 },
+            alignSelf: "start",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 1,
+            textAlign: "center",
+          }}
+        >
+          <Box
+            component={Link}
+            href="https://www.raposobernardo.com/"
+            target="_blank"
+            rel="noopener"
+            sx={{
+              display: "inline-block",
+              borderRadius: "4px",
+              p: 0.5,
+              width: "fit-content",
+            }}
+          >
+            <Box
+              component="img"
+              src={chamber}
+              alt="Paulo Braga Real Estate Logo"
+              sx={{
+                height: { xs: 60, md: 120 },
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+                opacity: 0.8,
+                "&:hover": {
+                  transform: "scale(1.05)",
+                  opacity: 1,
+                },
+              }}
+            />
+          </Box>
+          <Typography
+            variant="body2"
+            sx={{
+              fontFamily: "'Montserrat', sans-serif",
+              mt: 1,
+            }}
+          >
+            {footer[1]}
+          </Typography>
         </Box>
       </Box>
       {/* Absolute copyright in bottom-right */}
