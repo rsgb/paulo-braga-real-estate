@@ -125,7 +125,7 @@ export default function Footer() {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            gap: 1,
+            gap: 1, // Ensure gap: 1 for uniform vertical spacing
           }}
         >
           <Box
@@ -160,7 +160,6 @@ export default function Footer() {
             sx={{
               fontFamily: "'Montserrat', sans-serif",
               textAlign: { xs: "center", md: "left" },
-              mt: 1,
             }}
           >
             {footer[1]}
