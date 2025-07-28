@@ -31,7 +31,8 @@ export default function Footer() {
         position: "relative",
         color: "#FFFFFF",
         minHeight: "500px",
-        py: { xs: 2, md: 4 }, // reduce padding since height is fixed
+        pt: { xs: "30px", md: 4 }, // 10px top padding on mobile
+        pb: { xs: 2, md: 4 }, // keep original bottom padding
         px: { xs: 2, md: 6 },
         fontFamily: "'Montserrat', sans-serif",
         mt: 15,
@@ -55,8 +56,8 @@ export default function Footer() {
             gridColumn: 1,
             gridRow: 1,
             fontFamily: "'Libre Baskerville', serif",
-            fontWeight: 700,
-            fontSize: { xs: "1.5rem", md: "2rem" },
+            fontWeight: 100,
+            fontSize: { xs: "1.7rem", md: "2rem" },
             textAlign: { xs: "center", md: "left" },
             opacity: 0.8,
           }}
@@ -276,7 +277,7 @@ export default function Footer() {
             variant="body2"
             sx={{
               fontFamily: "'Montserrat', sans-serif",
-              mt: 1,
+              mt: { xs: 0, md: 0 },
             }}
           >
             {footer[1]}
