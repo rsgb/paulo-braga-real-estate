@@ -15,9 +15,7 @@ const features = [
     text: "",
   },
   {
-    icon: (
-      <PeopleAltIcon sx={{ color: "black", fontSize: { xs: 40, md: 46 } }} />
-    ),
+    icon: <PeopleAltIcon sx={{ color: "black", fontSize: { xs: 40, md: 46 } }} />,
     text: "",
   },
   {
@@ -27,16 +25,17 @@ const features = [
 ];
 
 const bgColors = [
-  "#FAF8F4", // off-white
-  "#F9E8C5", // pale gold
-  "#F6F5EF", // soft neutral
-  "#EEEEEE", // light gray
+  "#f4f1eb",
+  "#f4f1eb",
+  "#f4f1eb",
+  "#f4f1eb",
 ];
 
 function FeatureHighlights() {
   const { lang, setLang } = useLang();
 
   let services = "";
+  let description;
 
   if (lang === "EN") {
     services = "Services";
@@ -45,6 +44,8 @@ function FeatureHighlights() {
     features[1].text = "Wide national and international contact network";
     features[2].text = "Coordination of multidisciplinary teams";
     features[3].text = "Specialized legal advisory";
+    description =
+      "Whether acquiring premium assets or placing yours on the market, I provide a personalised and discreet service, backed by three decades of consolidated expertise and a trusted partner network — ensuring secure and profitable transactions.";
   } else if (lang === "PT") {
     services = "Serviços";
     features[0].text =
@@ -52,6 +53,8 @@ function FeatureHighlights() {
     features[1].text = "Rede de contactos nacional e internacional";
     features[2].text = "Capacidade para articular equipas multidisciplinares";
     features[3].text = "Aconselhamento jurídico especializado";
+    description =
+      "Quer pretenda adquirir activos de excelência ou colocar os seus no mercado, ofereço um serviço personalizado e discreto, apoiado em três décadas de experiência consolidada e numa rede de parceiros de confiança — garantindo transacções seguras e rentáveis.";
   } else if (lang === "ES") {
     services = "Servicios";
     features[0].text =
@@ -59,6 +62,8 @@ function FeatureHighlights() {
     features[1].text = "Red de contactos nacional e internacional";
     features[2].text = "Capacidad para coordinar equipos multidisciplinares";
     features[3].text = "Asesoramiento jurídico especializado";
+    description =
+      "Ya sea para adquirir activos premium o poner los suyos en el mercado, ofrezco un servicio personalizado y discreto, respaldado por tres décadas de experiencia consolidada y una red de socios de confianza — asegurando operaciones seguras y rentables.";
   } else if (lang === "FR") {
     services = "Services";
     features[0].text =
@@ -66,6 +71,8 @@ function FeatureHighlights() {
     features[1].text = "Réseau de contacts national et international";
     features[2].text = "Capacité à coordonner des équipes multidisciplinaires";
     features[3].text = "Conseil juridique spécialisé";
+    description =
+      "Que vous souhaitiez acquérir des biens d’exception ou mettre les vôtres sur le marché, je propose un service personnalisé et discret, fort de trois décennies d’expertise consolidée et d’un réseau de partenaires de confiance — garantissant des transactions sûres et rentables.";
   }
 
   return (
@@ -91,6 +98,37 @@ function FeatureHighlights() {
             {services}
           </Typography>
         </Grid>
+        <Box
+          sx={{
+            maxWidth: 1146,
+            mx: "auto",
+            mb: 4,
+          }}
+        >
+          <Box
+            sx={{
+              borderLeft: "4px solid #722f37",
+              pl: 4,
+              py: 3,
+              background:
+                "linear-gradient(90deg, rgba(114,47,55,0.06) 0%, transparent 100%)",
+              borderRadius: "0 8px 8px 0",
+            }}
+          >
+            <Typography
+              variant="h6"
+              sx={{
+                fontFamily: "'Montserrat', sans-serif",
+                fontWeight: 500,
+                fontSize: { xs: "1.1rem", md: "1.2rem" },
+                lineHeight: 1.7,
+                fontStyle: "italic",
+              }}
+            >
+              {description}
+            </Typography>
+          </Box>
+        </Box>
         {/* Right column: feature cards */}
         <Grid item xs={12} md={8}>
           <Box
@@ -112,11 +150,12 @@ function FeatureHighlights() {
                   p: { xs: 2, md: 2.5 },
                   width: "100%",
                   aspectRatio: { xs: "auto", md: "1 / 1" },
-                  backgroundColor: bgColors[index],
+                  backgroundColor: "#fbfaf7",
                   transition: "transform 0.3s",
                   "&:hover": { transform: "scale(1.05)" },
                   display: "flex",
                   flexDirection: "column",
+                  borderTop: "1px solid rgba(200, 178, 122, 0.35)",
                 }}
               >
                 <Box
@@ -127,6 +166,8 @@ function FeatureHighlights() {
                     alignItems: "center",
                     justifyContent: "center",
                     width: "100%",
+                    color: "black",
+                    "& svg": { color: "black" },
                   }}
                 >
                   <Box

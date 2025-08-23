@@ -7,23 +7,24 @@ export default function Header() {
 
   let title = "";
   let subtitle = "";
+  let description = "";
 
   if (lang === "EN") {
     title = "High-Value Real Estate Investments";
     subtitle =
-      "Explore curated investment opportunities in Portugal’s high-demand sectors, tailored for national and global investors.";
+      "Curated opportunities in Portugal’s most sought-after sectors, tailored for national and international clients.";
   } else if (lang === "PT") {
     title = "Investimentos Imobiliários de Alto Valor";
     subtitle =
-      "Explore oportunidades de investimento seleccionadas nos sectores de maior procura em Portugal, concebidas para investidores nacionais e internacionais.";
+      "Oportunidades seleccionadas nos sectores mais procurados de Portugal, adaptadas a clientes nacionais e internacionais.";
   } else if (lang === "ES") {
     title = "Inversiones Inmobiliarias de Alto Valor";
     subtitle =
-      "Explore oportunidades de inversión seleccionadas en los sectores de mayor demanda en Portugal, diseñadas para inversores nacionales e internacionales.";
+      "Oportunidades seleccionadas en los sectores más demandados de Portugal, adaptadas a clientes nacionales e internacionales.";
   } else if (lang === "FR") {
     title = "Investissements Immobiliers de Haute Valeur";
     subtitle =
-      "Découvrez des opportunités d’investissement sélectionnées dans les secteurs les plus recherchés du Portugal, conçues pour les investisseurs nationaux et internationaux.";
+      "Des opportunités sélectionnées dans les secteurs les plus recherchés du Portugal, adaptées aux clients nationaux et internationaux.";
   }
 
   return (

@@ -1,26 +1,14 @@
 import { useLang } from "./LangContext";
-import { Box, Grid, IconButton, Typography, Link } from "@mui/material";
+import { Box, IconButton, Typography, Link } from "@mui/material";
 import CallIcon from "@mui/icons-material/Call";
 import EmailIcon from "@mui/icons-material/Email";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import logo from "../images/KWsol white.png";
 import secondLogo from "../images/PBre white.png";
-import chamber from "../images/chambers white.png";
 
 export default function Footer() {
-  const { lang, setLang } = useLang();
-
-  let footer = [];
-  if (lang === "PT") {
-    footer = ["Parcerias", "Sociedade de Advogados"];
-  } else if (lang === "EN") {
-    footer = ["Partnerships", "Law Firm"];
-  } else if (lang === "ES") {
-    footer = ["Colaboraciones", "Despacho de Abogados"];
-  } else if (lang === "FR") {
-    footer = ["Partenariats", "Cabinet d'avocats"];
-  }
+  const { lang } = useLang();
 
   return (
     <Box
@@ -42,37 +30,23 @@ export default function Footer() {
         sx={{
           display: "grid",
           gridTemplateColumns: { xs: "1fr", md: "repeat(4, 1fr)" },
-          gridTemplateRows: "auto auto",
+          gridTemplateRows: "auto",
           alignItems: "start",
           gap: 4,
           transform: { md: "translateY(50px)" },
           paddingBottom: "30px",
         }}
       >
-        {/* Row 1, Col 1: Partnerships Title */}
-        <Typography
-          variant="h1"
-          sx={{
-            gridColumn: 1,
-            gridRow: 1,
-            fontFamily: "'Libre Baskerville', serif",
-            fontWeight: 100,
-            fontSize: { xs: "1.7rem", md: "2rem" },
-            textAlign: { xs: "center", md: "left" },
-            opacity: 0.8,
-          }}
-        >
-          {footer[0]}
-        </Typography>
-
-        {/* Row 2, Col 4: Contact Icons */}
+        {/* Row 1, Col 4: Contact Icons */}
         <Box
           sx={{
             gridColumn: { xs: 1, md: 4 },
-            gridRow: { xs: 4, md: 2 },
+            gridRow: { xs: 2, md: 1 },
             alignSelf: "start",
             display: "flex",
-            justifyContent: { xs: "center", md: "flex-end" },
+            flexDirection: "column",
+            alignItems: { xs: "center", md: "flex-end" },
+            gap: 2,
           }}
         >
           <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
@@ -139,13 +113,29 @@ export default function Footer() {
               <LinkedInIcon />
             </IconButton>
           </Box>
+
+          {/* PB Real Estate Logo */}
+          <Box
+            component="img"
+            src={secondLogo}
+            alt="Paulo Braga Real Estate Logo"
+            sx={{
+              height: { xs: 40, md: 50 },
+              transition: "transform 0.3s ease, opacity 0.3s ease",
+              opacity: 0.8,
+              "&:hover": {
+                transform: "scale(1.05)",
+                opacity: 1,
+              },
+            }}
+          />
         </Box>
 
-        {/* Row 2, Col 1: KW Section */}
+        {/* Row 1, Col 1: KW Section */}
         <Box
           sx={{
             gridColumn: 1,
-            gridRow: 2,
+            gridRow: 1,
             alignSelf: "start",
             display: "flex",
             flexDirection: "column",
@@ -229,58 +219,6 @@ export default function Footer() {
             }}
           >
             2780-129 Oeiras - Portugal
-          </Typography>
-        </Box>
-
-        {/* Row 2, Col 2: Chambers Section */}
-        <Box
-          sx={{
-            gridColumn: "1 / -1",
-            gridRow: { xs: 3, md: 2 },
-            alignSelf: "start",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 1,
-            textAlign: "center",
-          }}
-        >
-          <Box
-            component={Link}
-            href="https://www.raposobernardo.com/"
-            target="_blank"
-            rel="noopener"
-            sx={{
-              display: "inline-block",
-              borderRadius: "4px",
-              p: 0.5,
-              width: "fit-content",
-            }}
-          >
-            <Box
-              component="img"
-              src={chamber}
-              alt="Paulo Braga Real Estate Logo"
-              sx={{
-                height: { xs: 60, md: 120 },
-                transition: "transform 0.3s ease, opacity 0.3s ease",
-                opacity: 0.8,
-                "&:hover": {
-                  transform: "scale(1.05)",
-                  opacity: 1,
-                },
-              }}
-            />
-          </Box>
-          <Typography
-            variant="body2"
-            sx={{
-              fontFamily: "'Montserrat', sans-serif",
-              mt: { xs: 0, md: 0 },
-            }}
-          >
-            {footer[1]}
           </Typography>
         </Box>
       </Box>

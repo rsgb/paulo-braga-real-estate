@@ -7,28 +7,33 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const contacts = [
   {
-    icon: <CallIcon sx={{ color: "black" }} />,
+    icon: <CallIcon />,
     label: "",
     href: "tel:+351915312417",
   },
   {
-    icon: <EmailIcon sx={{ color: "black" }} />,
+    icon: <EmailIcon />,
     label: "",
     href: "mailto:paulo.braga@kwportugal.pt",
   },
   {
-    icon: <WhatsAppIcon sx={{ color: "black" }} />,
+    icon: <WhatsAppIcon />,
     label: "",
     href: "https://wa.me/351915312417",
   },
   {
-    icon: <LinkedInIcon sx={{ color: "black" }} />,
+    icon: <LinkedInIcon />,
     label: "",
     href: "https://www.linkedin.com/in/paulobragarealestateagentkwportugal/",
   },
 ];
 
-const bgColors = ["#FAF8F4", "#F9E8C5", "#F6F5EF", "#EEEEEE"];
+const bgColors = [
+  "#fbfaf7",
+  "#fbfaf7",
+  "#fbfaf7",
+  "#fbfaf7",
+]; // unified premium surface color
 
 export default function Contact() {
   const { lang, setLang } = useLang();
@@ -78,7 +83,7 @@ export default function Contact() {
             fontWeight: 700,
             fontSize: { xs: "2rem", md: "2.5rem" },
             mt: { xs: 10, md: 15 },
-            textAlign: "left",
+            textAlign: "center",
           }}
         >
           {contact}
@@ -140,8 +145,12 @@ export default function Contact() {
                 alignItems: "center",
                 justifyContent: "center",
                 gap: 2,
+                color: "black",
+                opacity: 0.95,
+                borderTop: "1px solid rgba(200, 178, 122, 0.35)",
                 "& svg": {
                   fontSize: "1.5rem",
+                  color: "black",
                 },
               }}
             >

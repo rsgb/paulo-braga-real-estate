@@ -5,6 +5,7 @@ import Header from "./assets/components/Header";
 import About from "./assets/components/About";
 import aboutphoto from "./assets/images/fotonb.png";
 import Services from "./assets/components/Services";
+import Partners from "./assets/components/Partners";
 import Contact from "./assets/components/Contact";
 import Footer from "./assets/components/Footer";
 
@@ -24,6 +25,9 @@ function App() {
         </div>
         <div id="about">
           <About image={aboutphoto} buttonText="Contact Me" />
+        </div>
+        <div id="partners">
+          <Partners />
         </div>
         <div id="contact">
           <Contact />
