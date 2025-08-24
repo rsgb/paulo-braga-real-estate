@@ -21,7 +21,7 @@ export default function Footer() {
         minHeight: "500px",
         pt: { xs: "30px", md: 4 }, // 10px top padding on mobile
         pb: { xs: 2, md: 4 }, // keep original bottom padding
-        px: { xs: 2, md: 6 },
+        px: { xs: 1, md: 6 },
         fontFamily: "'Montserrat', sans-serif",
         mt: 15,
         borderTop: (theme) =>
@@ -31,12 +31,14 @@ export default function Footer() {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: { xs: "1fr", md: "repeat(4, 1fr)" },
+          gridTemplateColumns: { xs: "1fr", md: "300px 1fr 1fr 1fr" },
           gridTemplateRows: "auto",
           alignItems: "start",
           gap: 4,
           transform: { md: "translateY(50px)" },
           paddingBottom: "30px",
+          maxWidth: { xs: "320px", md: "100%" },
+          mx: { xs: "auto", md: 0 },
         }}
       >
         {/* Row 1, Col 4: Contact Icons */}

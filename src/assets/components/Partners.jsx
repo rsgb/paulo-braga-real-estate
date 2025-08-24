@@ -72,12 +72,10 @@ export default function Partners() {
         />
         <Typography
           component="p"
-          variant="body1"
+          variant="body2"
           sx={{
             fontFamily: "'Montserrat', sans-serif",
             fontWeight: 500,
-            fontSize: "1rem",
-            letterSpacing: "0.02em",
             color: "#8b8680",
             textAlign: "center",
             whiteSpace: "nowrap",
