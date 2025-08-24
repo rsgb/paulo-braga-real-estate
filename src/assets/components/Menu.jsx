@@ -28,12 +28,12 @@ export default function ResponsiveAppBar() {
   const [anchorElMobileLang, setAnchorElMobileLang] = React.useState(null);
   const { lang, setLang } = useLang();
 
-  const pageKeys = ["home", "services", "about", "contact"];
+  const pageKeys = ["home", "services", "about", "partners", "contact"];
   const pageLabels = {
-    EN: ["Home", "Services", "About", "Contact"],
-    PT: ["Início", "Serviços", "Sobre Mim", "Contacto"],
-    ES: ["Inicio", "Servicios", "Sobre Mí", "Contacto"],
-    FR: ["Accueil", "Services", "À Propos", "Contact"],
+    EN: ["Home", "Services", "About", "Partners", "Contact"],
+    PT: ["Início", "Serviços", "Sobre Mim", "Parceiros", "Contacto"],
+    ES: ["Inicio", "Servicios", "Sobre Mí", "Parceiros", "Contacto"],
+    FR: ["Accueil", "Services", "À Propos", "Partenaires", "Contact"],
   };
   const pages = pageKeys.map((key, idx) => ({
     id: key,
@@ -51,7 +51,14 @@ export default function ResponsiveAppBar() {
   const handleCloseMobileLangMenu = () => setAnchorElMobileLang(null);
 
   return (
-    <AppBar position="fixed" color="default" elevation={1}>
+    <AppBar
+      position="fixed"
+      color="default"
+      elevation={1}
+      sx={{
+        borderBottom: (theme) => `1px solid ${theme.palette.custom.champagneHairline}`,
+      }}
+    >
       <Container
         maxWidth={false}
         disableGutters

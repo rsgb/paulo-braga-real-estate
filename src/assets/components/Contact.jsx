@@ -7,28 +7,28 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const contacts = [
   {
-    icon: <CallIcon sx={{ color: "black" }} />,
+    icon: <CallIcon />,
     label: "",
     href: "tel:+351915312417",
   },
   {
-    icon: <EmailIcon sx={{ color: "black" }} />,
+    icon: <EmailIcon />,
     label: "",
     href: "mailto:paulo.braga@kwportugal.pt",
   },
   {
-    icon: <WhatsAppIcon sx={{ color: "black" }} />,
+    icon: <WhatsAppIcon />,
     label: "",
     href: "https://wa.me/351915312417",
   },
   {
-    icon: <LinkedInIcon sx={{ color: "black" }} />,
+    icon: <LinkedInIcon />,
     label: "",
     href: "https://www.linkedin.com/in/paulobragarealestateagentkwportugal/",
   },
 ];
 
-const bgColors = ["#FAF8F4", "#F9E8C5", "#F6F5EF", "#EEEEEE"];
+const bgColors = ["#fbfaf7", "#fbfaf7", "#fbfaf7", "#fbfaf7"]; // unified premium surface color
 
 export default function Contact() {
   const { lang, setLang } = useLang();
@@ -68,9 +68,15 @@ export default function Contact() {
   }
 
   return (
-    <Container maxWidth="sm" disableGutters sx={{ px: 2 }}>
-      {/* Row 1: full-width heading */}
-      <Box sx={{ maxWidth: { xs: 318, md: "100%" }, mx: "auto" }}>
+    <>
+      {/* Heading aligned to Partners width */}
+      <Box
+        sx={{
+          maxWidth: { xs: "350px", md: "748px", lg: "1146px" },
+          mx: "auto",
+          textAlign: "center",
+        }}
+      >
         <Typography
           variant="h1"
           sx={{
@@ -78,7 +84,11 @@ export default function Contact() {
             fontWeight: 700,
             fontSize: { xs: "2rem", md: "2.5rem" },
             mt: { xs: 10, md: 15 },
-            textAlign: "left",
+            textAlign: "center",
+            display: "inline-block",
+            borderBottom: (theme) =>
+              `2px solid ${theme.palette.custom.champagne}`,
+            pb: 0.75,
           }}
         >
           {contact}
@@ -86,71 +96,79 @@ export default function Contact() {
       </Box>
 
       {/* Row 2: icons grid */}
-      <Box
-        sx={{
-          maxWidth: { xs: 318, md: "100%" },
-          mx: "auto",
-          display: "grid",
-          gridTemplateColumns: {
-            xs: "repeat(2, 1fr)", // 2 per row on small screens
-            md: "repeat(4, 1fr)", // 4 per row on medium and large screens
-          },
-          gap: 4,
-          mt: { xs: 4, md: 6 },
-        }}
-      >
-        {contacts.map(({ label, icon, href }, index) => (
-          <Paper
-            key={index}
-            elevation={3}
-            component="a"
-            href={href}
-            target={
-              label === "LinkedIn" || label === "WhatsApp"
-                ? "_blank"
-                : undefined
-            }
-            rel={
-              label === "LinkedIn" || label === "WhatsApp"
-                ? "noopener noreferrer"
-                : undefined
-            }
-            sx={{
-              position: "relative",
-              width: "100%",
-              pt: "100%", // maintain square aspect ratio
-              overflow: "hidden",
-              backgroundColor: bgColors[index],
-              transition: "transform 0.3s",
-              "&:hover": { transform: "scale(1.05)" },
-              textDecoration: "none",
-              cursor: "pointer",
-            }}
-          >
-            <Box
+      <Container maxWidth="sm" disableGutters sx={{ px: 2 }}>
+        <Box
+          sx={{
+            maxWidth: { xs: 318, md: "100%" },
+            mx: "auto",
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "repeat(2, 1fr)", // 2 per row on small screens
+              md: "repeat(4, 1fr)", // 4 per row on medium and large screens
+            },
+            gap: 4,
+            mt: { xs: 4, md: 6 },
+          }}
+        >
+          {contacts.map(({ label, icon, href }, index) => (
+            <Paper
+              key={index}
+              elevation={3}
+              component="a"
+              href={href}
+              target={
+                label === "LinkedIn" || label === "WhatsApp"
+                  ? "_blank"
+                  : undefined
+              }
+              rel={
+                label === "LinkedIn" || label === "WhatsApp"
+                  ? "noopener noreferrer"
+                  : undefined
+              }
               sx={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                p: 3,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 2,
-                "& svg": {
-                  fontSize: "1.5rem",
-                },
+                position: "relative",
+                width: "100%",
+                pt: "100%", // maintain square aspect ratio
+                overflow: "hidden",
+                backgroundColor: "background.paper",
+                transition: "transform 0.3s",
+                "&:hover": { transform: "scale(1.05)" },
+                textDecoration: "none",
+                cursor: "pointer",
               }}
             >
-              {icon}
-              {label}
-            </Box>
-          </Paper>
-        ))}
-      </Box>
-    </Container>
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  p: 3,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: 2,
+                  color: "text.primary",
+                  opacity: 0.95,
+                  background: "none",
+                  borderTop: (theme) =>
+                    `1px solid ${theme.palette.custom.champagneHairline}`,
+                  "& svg": {
+                    fontSize: "1.5rem",
+                    color: "text.primary",
+                  },
+                }}
+              >
+                {icon}
+                {label}
+              </Box>
+            </Paper>
+          ))}
+        </Box>
+      </Container>
+    </>
   );
 }

@@ -1,137 +1,186 @@
 import { useLang } from "./LangContext";
-import { Container, Box, Typography } from "@mui/material";
-import { useRef } from "react";
-import logo from "../images/KWsol black.png";
-import chamber from "../images/chambers black.png";
+import { Box, Typography } from "@mui/material";
+import kwLogo from "../images/KWsol black.png";
+import chambersLogo from "../images/chambers black.png";
+import interiorLogo from "../images/host.png";
 
 export default function Partners() {
-  const { lang, setLang } = useLang();
+  const { lang } = useLang();
 
-  let partners = [];
+  let subtitles = [];
+  let partnershipLabel = "In partnership with";
 
-  if (lang === "PT") {
-    partners = ["Parceiros", "Agência Imobiliária", "Escritório de Advocacia"];
-  } else if (lang === "EN") {
-    partners = ["Partners", "Real Estate Agency", "Law Firm"];
+  if (lang === "EN") {
+    subtitles = ["Real Estate", "Law Firm", "Interior Design"];
+    partnershipLabel = "In partnership with";
+  } else if (lang === "PT") {
+    subtitles = [
+      "Imobiliário",
+      "Sociedade de Advogados",
+      "Design de Interiores",
+    ];
+    partnershipLabel = "Em parceria com";
   } else if (lang === "ES") {
-    partners = ["Socios", "Agencia Inmobiliaria", "Despacho de Abogados"];
+    subtitles = [
+      "Inmobiliario",
+      "Despacho de Abogados",
+      "Diseño de Interiores",
+    ];
+    partnershipLabel = "En colaboración con";
   } else if (lang === "FR") {
-    partners = ["Partenaires", "Agence Immobilière", "Cabinet d'Avocats"];
+    subtitles = ["Immobilier", "Cabinet d'avocats", "Design d'intérieur"];
+    partnershipLabel = "En partenariat avec";
   }
 
-  const scrollRef = useRef(null);
-  const scrollTrackRef = useRef(null);
+  const partnerLogos = [
+    {
+      logo: kwLogo,
+      subtitle: subtitles[0],
+      url: "https://www.kwportugal.pt/pt/agencia/KW-Sol-Oeiras/8336",
+    },
+    {
+      logo: chambersLogo,
+      subtitle: subtitles[1],
+      url: "https://www.raposobernardo.com/",
+    },
+    {
+      logo: interiorLogo,
+      subtitle: subtitles[2],
+      url: "https://www.hostdesigners.com/",
+    },
+  ];
 
   return (
-    <Container
-      maxWidth="sm"
-      disableGutters
-      sx={{ px: 2, mt: { xs: 12, md: 15 } }}
+    <Box
+      sx={{
+        maxWidth: { xs: "350px", md: "748px", lg: "1146px" },
+        mt: { xs: 0, md: -4.5 },
+        pt: { xs: 1.5, md: 0 },
+      }}
+      mx="auto"
+      px={0}
     >
-      {/* Row 1 & 2: heading and scrolling logos, wrapped with mb: 20 */}
-      <Box>
-        <Box sx={{ maxWidth: { xs: 318, md: "100%" }, mx: "auto" }}>
-          <Typography
-            variant="h1"
-            sx={{
-              fontFamily: "'Libre Baskerville', serif",
-              fontWeight: 700,
-              fontSize: { xs: "2rem", md: "2.5rem" },
-              mt: { xs: 12, md: 15 },
-              textAlign: "right",
-            }}
-          >
-            {partners[0]}
-          </Typography>
-        </Box>
-
+      {/* Heading: divider with centered text */}
+      <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
         <Box
           sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            mt: { xs: 4, md: 6 },
-            mb: 20,
+            flex: 1,
+            height: 1,
+            bgcolor: (t) => t.palette.custom.champagneHairline,
+            borderRadius: 1,
+          }}
+        />
+        <Typography
+          component="p"
+          variant="body1"
+          sx={{
+            fontFamily: "'Montserrat', sans-serif",
+            fontWeight: 500,
+            fontSize: "1rem",
+            letterSpacing: "0.02em",
+            color: "#8b8680",
+            textAlign: "center",
+            whiteSpace: "nowrap",
           }}
         >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <a
-              href="https://www.kwportugal.pt/pt/agencia/KW-Sol-Oeiras/8336"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Box
-                component="img"
-                src={logo}
-                alt="Partner Logo Left"
-                sx={{
-                  height: 118,
-                  width: "auto",
-                  objectFit: "contain",
-                  transition: "transform 0.3s ease",
-                  "&:hover": {
-                    transform: "scale(1.05)",
-                  },
-                }}
-              />
-            </a>
-            <Typography
-              variant="body2"
-              sx={{
-                mt: 1,
-                textAlign: "center",
-                fontFamily: "'Montserrat', sans-serif",
-              }}
-            >
-              {partners[1]}
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <a
-              href="https://www.raposobernardo.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Box
-                component="img"
-                src={chamber}
-                alt="Partner Logo Right"
-                sx={{
-                  height: 118,
-                  width: "auto",
-                  objectFit: "contain",
-                  transition: "transform 0.3s ease",
-                  "&:hover": {
-                    transform: "scale(1.05)",
-                  },
-                }}
-              />
-            </a>
-            <Typography
-              variant="body2"
-              sx={{
-                mt: 1,
-                textAlign: "center",
-                fontFamily: "'Montserrat', sans-serif",
-              }}
-            >
-              {partners[2]}
-            </Typography>
-          </Box>
-        </Box>
+          {partnershipLabel}
+        </Typography>
+        <Box
+          sx={{
+            flex: 1,
+            height: 1,
+            bgcolor: (t) => t.palette.custom.champagneHairline,
+            borderRadius: 1,
+          }}
+        />
       </Box>
-    </Container>
+
+      {/* Logos grid */}
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: {
+            xs: "1fr", // 1 per row on small screens
+            md: "repeat(3, 1fr)", // 3 per row on medium and large screens
+          },
+          gap: 4,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {/* Partner logos */}
+        {partnerLogos.map((partner, index) => (
+          <Box
+            key={index}
+            component="a"
+            href={partner.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={(theme) => ({
+              width: "100%",
+              // Minimal look: no background, no radius, no shadow
+              background: "transparent",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              textDecoration: "none",
+              boxShadow: "none",
+              borderRadius: 0,
+              // Vertical divider between columns on md+ (not on last column)
+              borderRight:
+                index < partnerLogos.length - 1
+                  ? {
+                      xs: "none",
+                      md: `1px solid ${theme.palette.custom.champagneHairline}`,
+                    }
+                  : "none",
+              // Balanced spacing
+              p: { xs: 2, md: 2.25 },
+              gap: 1.25,
+              minHeight: "120px",
+            })}
+          >
+            <Box
+              sx={{
+                width: "100%",
+                height: "80px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                "& img": {
+                  transition: "transform 0.2s ease",
+                },
+                "&:hover img": {
+                  transform: "translateY(-2px)",
+                },
+              }}
+            >
+              <img
+                src={partner.logo}
+                alt={partner.subtitle}
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  objectFit: "contain",
+                }}
+              />
+            </Box>
+            <Typography
+              variant="body2"
+              sx={{
+                color: "#000000",
+                fontFamily: "'Montserrat', sans-serif",
+                fontWeight: 500,
+                textAlign: "center",
+              }}
+            >
+              {partner.subtitle}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
+    </Box>
   );
 }
