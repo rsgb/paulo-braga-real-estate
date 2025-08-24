@@ -79,128 +79,122 @@ function FeatureHighlights() {
     <Box
       sx={{
         maxWidth: { xs: "350px", md: "748px", lg: "1146px" },
-        mt: { xs: 12, md: 15 },
+        mt: { xs: 6, md: 8 },
       }}
       mx="auto"
       px={0}
     >
-      <Grid container spacing={6} alignItems="center">
-        {/* Left column: heading */}
-        <Grid item xs={12} md={4}>
-          <Typography
-            variant="h1"
-            sx={{
-              fontFamily: "'Libre Baskerville', serif",
-              fontWeight: 700,
-              fontSize: { xs: "2rem", md: "2.5rem" },
-            }}
-          >
-            {services}
-          </Typography>
-        </Grid>
-        <Box
+      {/* Heading */}
+      <Typography
+        variant="h1"
+        sx={{
+          fontFamily: "'Libre Baskerville', serif",
+          fontWeight: 700,
+          fontSize: { xs: "2rem", md: "2.5rem" },
+          display: "inline-block",
+          borderBottom: (theme) => `2px solid ${theme.palette.custom.champagne}`,
+          pb: 0.75,
+          mb: 4,
+        }}
+      >
+        {services}
+      </Typography>
+
+      {/* Description */}
+      <Box
+        sx={{
+          borderLeft: (theme) => `4px solid ${theme.palette.custom.champagne}`,
+          pl: 4,
+          py: 3,
+          background: (theme) =>
+            `linear-gradient(90deg, ${theme.palette.custom.champagneHairline} 0%, transparent 100%)`,
+          borderRadius: "0 8px 8px 0",
+          mb: 6,
+        }}
+      >
+        <Typography
+          variant="h6"
           sx={{
-            maxWidth: 1146,
-            mx: "auto",
-            mb: 4,
+            fontFamily: "'Montserrat', sans-serif",
+            fontWeight: 500,
+            fontSize: { xs: "1.1rem", md: "1.2rem" },
+            lineHeight: 1.7,
+            fontStyle: "italic",
           }}
         >
-          <Box
+          {description}
+        </Typography>
+      </Box>
+
+      {/* Feature cards */}
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: {
+            xs: "1fr", // 1 per row on small screens
+            md: "repeat(4, 1fr)", // 4 per row on medium and large screens
+          },
+          gap: 3,
+          justifyContent: "center",
+        }}
+      >
+        {features.map(({ text, icon }, index) => (
+          <Paper
+            key={index}
+            elevation={3}
             sx={{
-              borderLeft: "4px solid #722f37",
-              pl: 4,
-              py: 3,
-              background:
-                "linear-gradient(90deg, rgba(114,47,55,0.06) 0%, transparent 100%)",
-              borderRadius: "0 8px 8px 0",
+              p: { xs: 2, md: 2.5 },
+              width: "100%",
+              aspectRatio: { xs: "auto", md: "1 / 1" },
+              backgroundColor: "background.paper",
+              transition: "transform 0.3s",
+              "&:hover": { transform: "scale(1.05)" },
+              display: "flex",
+              flexDirection: "column",
+              borderTop: (theme) => `1px solid ${theme.palette.custom.champagneHairline}`,
             }}
           >
-            <Typography
-              variant="h6"
+            <Box
               sx={{
-                fontFamily: "'Montserrat', sans-serif",
-                fontWeight: 500,
-                fontSize: { xs: "1.1rem", md: "1.2rem" },
-                lineHeight: 1.7,
-                fontStyle: "italic",
+                flexGrow: 1,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100%",
+                color: "text.primary",
+                "& svg": { color: "text.primary" },
               }}
             >
-              {description}
-            </Typography>
-          </Box>
-        </Box>
-        {/* Right column: feature cards */}
-        <Grid item xs={12} md={8}>
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: {
-                xs: "1fr", // 1 per row on small screens
-                md: "repeat(4, 1fr)", // 4 per row on medium and large screens
-              },
-              gap: 3,
-              justifyContent: "center",
-            }}
-          >
-            {features.map(({ text, icon }, index) => (
-              <Paper
-                key={index}
-                elevation={3}
+              <Box
                 sx={{
-                  p: { xs: 2, md: 2.5 },
-                  width: "100%",
-                  aspectRatio: { xs: "auto", md: "1 / 1" },
-                  backgroundColor: "#fbfaf7",
-                  transition: "transform 0.3s",
-                  "&:hover": { transform: "scale(1.05)" },
+                  height: { xs: 48, md: 56 },
                   display: "flex",
-                  flexDirection: "column",
-                  borderTop: "1px solid rgba(200, 178, 122, 0.35)",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "100%",
+                  mb: 1.5,
                 }}
               >
-                <Box
-                  sx={{
-                    flexGrow: 1,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "100%",
-                    color: "black",
-                    "& svg": { color: "black" },
-                  }}
-                >
-                  <Box
-                    sx={{
-                      height: { xs: 48, md: 56 },
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      width: "100%",
-                      mb: 1.5,
-                    }}
-                  >
-                    {icon}
-                  </Box>
-                  <Typography
-                    variant="body2"
-                    sx={{
-                      fontFamily: "'Montserrat', sans-serif",
-                      fontWeight: 400,
-                      fontSize: { xs: "0.95rem", md: "1rem" },
-                      textAlign: "center",
-                      wordBreak: "break-word",
-                      width: "100%",
-                    }}
-                  >
-                    {text}
-                  </Typography>
-                </Box>
-              </Paper>
-            ))}
-          </Box>
-        </Grid>
-      </Grid>
+                {icon}
+              </Box>
+              <Typography
+                variant="body2"
+                sx={{
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 400,
+                  fontSize: { xs: "0.95rem", md: "1rem" },
+                  textAlign: "center",
+                  wordBreak: "break-word",
+                  width: "100%",
+                }}
+              >
+                {text}
+              </Typography>
+            </Box>
+          </Paper>
+        ))}
+      </Box>
     </Box>
   );
 }

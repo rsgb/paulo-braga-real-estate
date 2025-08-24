@@ -15,7 +15,7 @@ export default function Footer() {
       component="footer"
       sx={{
         width: "100%",
-        bgcolor: "#000000",
+        bgcolor: (theme) => theme.palette.custom.footerBg,
         position: "relative",
         color: "#FFFFFF",
         minHeight: "500px",
@@ -24,6 +24,8 @@ export default function Footer() {
         px: { xs: 2, md: 6 },
         fontFamily: "'Montserrat', sans-serif",
         mt: 15,
+        borderTop: (theme) =>
+          `1px solid ${theme.palette.custom.champagneHairline}`,
       }}
     >
       <Box
@@ -115,20 +117,22 @@ export default function Footer() {
           </Box>
 
           {/* PB Real Estate Logo */}
-          <Box
-            component="img"
-            src={secondLogo}
-            alt="Paulo Braga Real Estate Logo"
-            sx={{
-              height: { xs: 40, md: 50 },
-              transition: "transform 0.3s ease, opacity 0.3s ease",
-              opacity: 0.8,
-              "&:hover": {
-                transform: "scale(1.05)",
-                opacity: 1,
-              },
-            }}
-          />
+          <Box component={Link} href="#home" sx={{ display: "inline-block" }}>
+            <Box
+              component="img"
+              src={secondLogo}
+              alt="Paulo Braga Real Estate Logo"
+              sx={{
+                height: { xs: 40, md: 50 },
+                transition: "transform 0.3s ease, opacity 0.3s ease",
+                opacity: 0.8,
+                "&:hover": {
+                  transform: "scale(1.05)",
+                  opacity: 1,
+                },
+              }}
+            />
+          </Box>
         </Box>
 
         {/* Row 1, Col 1: KW Section */}

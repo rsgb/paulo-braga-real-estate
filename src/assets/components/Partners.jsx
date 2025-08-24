@@ -1,5 +1,5 @@
 import { useLang } from "./LangContext";
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import kwLogo from "../images/KWsol black.png";
 import chambersLogo from "../images/chambers black.png";
 import interiorLogo from "../images/host.png";
@@ -7,29 +7,29 @@ import interiorLogo from "../images/host.png";
 export default function Partners() {
   const { lang } = useLang();
 
-  let partners = "";
   let subtitles = [];
+  let partnershipLabel = "In partnership with";
 
   if (lang === "EN") {
-    partners = "Partners";
     subtitles = ["Real Estate", "Law Firm", "Interior Design"];
+    partnershipLabel = "In partnership with";
   } else if (lang === "PT") {
-    partners = "Parceiros";
     subtitles = [
       "Imobiliário",
       "Sociedade de Advogados",
       "Design de Interiores",
     ];
+    partnershipLabel = "Em parceria com";
   } else if (lang === "ES") {
-    partners = "Parceiros";
     subtitles = [
       "Inmobiliario",
       "Despacho de Abogados",
       "Diseño de Interiores",
     ];
+    partnershipLabel = "En colaboración con";
   } else if (lang === "FR") {
-    partners = "Partenaires";
     subtitles = ["Immobilier", "Cabinet d'avocats", "Design d'intérieur"];
+    partnershipLabel = "En partenariat avec";
   }
 
   const partnerLogos = [
@@ -54,24 +54,46 @@ export default function Partners() {
     <Box
       sx={{
         maxWidth: { xs: "350px", md: "748px", lg: "1146px" },
-        mt: { xs: 12, md: 15 },
+        mt: { xs: 0, md: -4.5 },
+        pt: { xs: 1.5, md: 0 },
       }}
       mx="auto"
       px={0}
     >
-      {/* Heading */}
-      <Typography
-        variant="h1"
-        sx={{
-          fontFamily: "'Libre Baskerville', serif",
-          fontWeight: 700,
-          fontSize: { xs: "2rem", md: "2.5rem" },
-          mb: 6,
-          textAlign: "center",
-        }}
-      >
-        {partners}
-      </Typography>
+      {/* Heading: divider with centered text */}
+      <Box sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}>
+        <Box
+          sx={{
+            flex: 1,
+            height: 1,
+            bgcolor: (t) => t.palette.custom.champagneHairline,
+            borderRadius: 1,
+          }}
+        />
+        <Typography
+          component="p"
+          variant="body1"
+          sx={{
+            fontFamily: "'Montserrat', sans-serif",
+            fontWeight: 500,
+            fontSize: "1rem",
+            letterSpacing: "0.02em",
+            color: "#8b8680",
+            textAlign: "center",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {partnershipLabel}
+        </Typography>
+        <Box
+          sx={{
+            flex: 1,
+            height: 1,
+            bgcolor: (t) => t.palette.custom.champagneHairline,
+            borderRadius: 1,
+          }}
+        />
+      </Box>
 
       {/* Logos grid */}
       <Box
@@ -94,24 +116,31 @@ export default function Partners() {
             href={partner.url}
             target="_blank"
             rel="noopener noreferrer"
-            sx={{
+            sx={(theme) => ({
               width: "100%",
-              backgroundColor: "#f5f4f2",
-              borderRadius: "8px",
+              // Minimal look: no background, no radius, no shadow
+              background: "transparent",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              transition: "transform 0.3s",
               cursor: "pointer",
               textDecoration: "none",
-              "&:hover": {
-                transform: "scale(1.05)",
-              },
-              p: 2,
-              gap: 2,
-              minHeight: "160px",
-            }}
+              boxShadow: "none",
+              borderRadius: 0,
+              // Vertical divider between columns on md+ (not on last column)
+              borderRight:
+                index < partnerLogos.length - 1
+                  ? {
+                      xs: "none",
+                      md: `1px solid ${theme.palette.custom.champagneHairline}`,
+                    }
+                  : "none",
+              // Balanced spacing
+              p: { xs: 2, md: 2.25 },
+              gap: 1.25,
+              minHeight: "120px",
+            })}
           >
             <Box
               sx={{
@@ -120,6 +149,12 @@ export default function Partners() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                "& img": {
+                  transition: "transform 0.2s ease",
+                },
+                "&:hover img": {
+                  transform: "translateY(-2px)",
+                },
               }}
             >
               <img
@@ -135,7 +170,7 @@ export default function Partners() {
             <Typography
               variant="body2"
               sx={{
-                color: "#2c2c2c",
+                color: "#000000",
                 fontFamily: "'Montserrat', sans-serif",
                 fontWeight: 500,
                 textAlign: "center",

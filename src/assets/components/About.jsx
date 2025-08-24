@@ -99,6 +99,9 @@ export default function About({ image, alt }) {
                   textAlign: "left",
                   mb: 2,
                   mt: { xs: 5, md: 2 },
+                  display: "inline-block",
+                  borderBottom: (theme) => `2px solid ${theme.palette.custom.champagne}`,
+                  pb: 0.75,
                 }}
               >
                 {about[0]}

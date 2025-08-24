@@ -51,7 +51,14 @@ export default function ResponsiveAppBar() {
   const handleCloseMobileLangMenu = () => setAnchorElMobileLang(null);
 
   return (
-    <AppBar position="fixed" color="default" elevation={1}>
+    <AppBar
+      position="fixed"
+      color="default"
+      elevation={1}
+      sx={{
+        borderBottom: (theme) => `1px solid ${theme.palette.custom.champagneHairline}`,
+      }}
+    >
       <Container
         maxWidth={false}
         disableGutters
