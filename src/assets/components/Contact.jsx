@@ -83,7 +83,7 @@ export default function Contact() {
             fontFamily: "'Libre Baskerville', serif",
             fontWeight: 700,
             fontSize: { xs: "2rem", md: "2.5rem" },
-            mt: { xs: 10, md: 15 },
+            mt: { xs: 8.75, md: 13.75 },
             textAlign: "center",
             display: "inline-block",
             borderBottom: (theme) =>
